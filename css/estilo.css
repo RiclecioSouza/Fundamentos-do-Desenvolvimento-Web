@@ -746,3 +746,265 @@ footer {
     color: var(--text-muted);
     font-size: 0.90rem;
 }
+
+/* ======== RESPONSIVIDADE ======= */
+/* Tablets e telas médias */
+@media (max-width: 950px) {
+    .section {
+        padding: 85px 0;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arcteture {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .arcteture-node {
+        min-height: auto;
+    }
+
+    .flow-arrow {
+        display: flex;
+        justify-content: center;
+        line-height: 1;
+        transform: rotate(90deg);
+    }
+
+    .technology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .technology-card,
+    .database-card,
+    .modern-card,
+    .featured-card,
+    .mini-card,
+    .summary-box {
+        min-width: 0;
+    }
+
+    .technology-card p {
+        min-height: auto;
+    }
+
+    .backend-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .backend-description {
+        position: static;
+    }
+
+    .modern-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .summary-box {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+}
+
+/* Celulares e telas estreitas */
+@media (max-width: 650px) {
+    .container {
+        width: min(calc(100% - 32px), var(--max-width));
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 76px 0;
+    }
+
+    .point-title {
+        margin-bottom: 20px;
+        font-size: 0.65rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.35rem, 10.5vw, 4rem);
+        overflow-wrap: anywhere;
+    }
+
+    .hero-description {
+        margin-top: 20px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .hero-tags {
+        gap: 7px;
+        margin-top: 25px;
+    }
+
+    .hero-tags span {
+        padding: 7px 10px;
+        font-size: 0.7rem;
+    }
+
+    .section {
+        padding: 68px 0;
+    }
+
+    .section-title {
+        gap: 13px;
+        margin-bottom: 32px;
+    }
+
+    .section-title h2 {
+        font-size: clamp(1.65rem, 7vw, 1.9rem);
+        overflow-wrap: anywhere;
+    }
+
+    .section-number {
+        font-size: 0.7rem;
+    }
+
+    .section-intro {
+        margin-bottom: 30px;
+    }
+
+    .section-intro p {
+        font-size: 0.98rem;
+        line-height: 1.75;
+    }
+
+    .featured-card {
+        padding: 25px;
+    }
+
+    .mini-card {
+        gap: 14px;
+        padding: 21px;
+    }
+
+    .arcteture-node {
+        padding: 24px;
+    }
+
+    .node-icon {
+        margin-bottom: 22px;
+    }
+
+    .technology-grid,
+    .database-grid,
+    .modern-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .technology-card,
+    .database-card {
+        padding: 25px;
+    }
+
+    .technology-card p {
+        min-height: 0;
+    }
+
+    .modern-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .modern-card h3 {
+        margin-top: 20px;
+    }
+
+    .backend-layout {
+        gap: 32px;
+    }
+
+    .language-item {
+        grid-template-columns: 35px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .summary-box {
+        padding: 28px 22px;
+        gap: 35px;
+    }
+
+    .summary-content h2 {
+        font-size: clamp(1.8rem, 7vw, 2rem);
+    }
+
+    .summary-item {
+        grid-template-columns: 34px minmax(0, 1fr);
+        column-gap: 12px;
+    }
+
+    .footer-content {
+        min-height: 110px;
+        padding: 22px 0;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+/* Celulares muito pequenos */
+@media (max-width: 400px) {
+    .container {
+        width: min(calc(100% - 24px), var(--max-width));
+    }
+
+    .hero-content {
+        padding: 62px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem;
+        letter-spacing: -0.055em;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-title {
+        display: block;
+        margin-bottom: 28px;
+    }
+
+    .section-number {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .featured-card,
+    .technology-card,
+    .database-card,
+    .modern-card {
+        padding: 22px;
+    }
+
+    .mini-card {
+        padding: 18px;
+    }
+
+    .arcteture-node {
+        padding: 21px;
+    }
+
+    .arcteture-note,
+    .simple-explanation {
+        padding: 18px;
+    }
+
+    .summary-box {
+        padding: 24px 18px;
+    }
+
+    .summary-item small {
+        overflow-wrap: anywhere;
+    }
+}
