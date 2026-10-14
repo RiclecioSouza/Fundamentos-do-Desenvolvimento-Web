@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Página educativa sobre Desenvolvimento Web, suas principais linguagens, tecnologias e conceitos."
+    >
+    <title>Desenvolvimento Web | Guia Informativo</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="point-title">
+                <span class="point"></span>
+                GUIA INFORMATIVO
+            </div>
+
+            <h1>Desenvolvimento <span>Web</span></h1>
+
+            <p class="hero-description">
+                Uma visão clara e acessível sobre os principais conceitos,
+                linguagens e tecnologias utilizadas na construção de sites
+                e aplicações para a Web.
+            </p>
+
+            <div class="hero-tags">
+                <span>Front-end</span>
+                <span>Back-end</span>
+                <span>Banco de Dados</span>
+                <span>Tecnologias Web</span>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- INTRODUÇÃO -->
+        <section class="section" id="introducao">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-number">01</span>
+                    <div>
+                        <span class="section-label">CONCEITO</span>
+                        <h2>Introdução ao Desenvolvimento Web</h2>
+                    </div>
+                </div>
+
+                <div class="intro-grid">
+                    <article class="info-card featured-card">
+                        <div class="card-icon">⌘</div>
+                        <h3>O que é Desenvolvimento Web?</h3>
+
+                        <p>
+                            Desenvolvimento Web é o processo de criação e manutenção
+                            de sites e aplicações que funcionam por meio da Internet
+                            ou de uma rede.
+                        </p>
+
+                        <p>
+                            Ele envolve diferentes áreas responsáveis pela aparência,
+                            interação, processamento de informações e armazenamento
+                            dos dados de uma aplicação.
+                        </p>
+                    </article>
+
+                    <div class="intro">
+                        <article class="mini-card">
+                            <span class="mini-icon">01</span>
+                            <div>
+                                <h3>Para que serve?</h3>
+                                <p>
+                                    Permite criar desde páginas simples até sistemas
+                                    completos, como lojas, plataformas educacionais,
+                                    redes de conteúdo e aplicações empresariais.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="mini-card">
+                            <span class="mini-icon">02</span>
+                            <div>
+                                <h3>Como funciona?</h3>
+                                <p>
+                                    De forma simplificada, o navegador apresenta a
+                                    interface, o servidor processa as solicitações
+                                    e o banco de dados armazena as informações.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLUXO -->
+        <section class="section section-darker">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-number">02</span>
+                    <div>
+                        <span class="section-label">VISÃO GERAL</span>
+                        <h2>Como as partes se relacionam</h2>
+                    </div>
+                </div>
+
+                <div class="arcteture">
+                    <div class="arcteture-node">
+                        <div class="node-number">01</div>
+                        <div class="node-icon">&lt;/&gt;</div>
+                        <h3>Front-end</h3>
+                        <p>
+                            É a parte visual e interativa que o usuário vê
+                            e utiliza no navegador.
+                        </p>
+                    </div>
+
+                    <div class="flow-arrow">
+                        <span>→</span>
+                    </div>
+
+                    <div class="arcteture-node active">
+                        <div class="node-number">02</div>
+                        <div class="node-icon">⚙</div>
+                        <h3>Back-end</h3>
+                        <p>
+                            Processa informações, executa regras e responde
+                            às solicitações da aplicação.
+                        </p>
+                    </div>
+
+                    <div class="flow-arrow">
+                        <span>→</span>
+                    </div>
+
+                    <div class="arcteture-node">
+                        <div class="node-number">03</div>
+                        <div class="node-icon">▣</div>
+                        <h3>Banco de Dados</h3>
+                        <p>
+                            Armazena e organiza informações que precisam
+                            ser utilizadas pela aplicação.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="arcteture-note">
+                    <strong>Fluxo simplificado:</strong>
+                    o usuário interage com o Front-end, que envia solicitações
+                    ao Back-end. O Back-end pode consultar ou alterar dados
+                    armazenados no banco e devolver uma resposta ao usuário.
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FRONT-END -->
+        <section class="section" id="frontend">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-number">03</span>
+                    <div>
+                        <span class="section-label">INTERFACE</span>
+                        <h2>Front-end</h2>
+                    </div>
+                </div>
+
+                <div class="section-intro">
+                    <p>
+                        Front-end é a parte do desenvolvimento responsável pela
+                        interface que aparece no navegador. É onde são construídos
+                        os elementos que o usuário visualiza e utiliza.
+                    </p>
+                </div>
+
+                <div class="technology-grid frontend-grid">
+                    <article class="technology-card html-card">
+                        <div class="tech-header">
+                            <div class="tech-symbol">&lt;/&gt;</div>
+                            <span class="tech-type">ESTRUTURA</span>
+                        </div>
+
+                        <h3>HTML</h3>
+
+                        <p>
+                            Define a estrutura e a organização do conteúdo de uma
+                            página, como títulos, textos, imagens, listas e seções.
+                        </p>
+
+                        <div class="tech-example">
+                            <span>FUNÇÃO</span>
+                            <strong>Estruturar o conteúdo</strong>
+                        </div>
+                    </article>
+
+                    <article class="technology-card css-card">
+                        <div class="tech-header">
+                            <div class="tech-symbol">#</div>
+                            <span class="tech-type">APARÊNCIA</span>
+                        </div>
+
+                        <h3>CSS</h3>
+
+                        <p>
+                            Controla a aparência da página. Define cores, fontes,
+                            espaçamentos, tamanhos, posicionamento e layout.
+                        </p>
+
+                        <div class="tech-example">
+                            <span>FUNÇÃO</span>
+                            <strong>Estilizar e organizar</strong>
+                        </div>
+                    </article>
+
+                    <article class="technology-card js-card">
+                        <div class="tech-header">
+                            <div class="tech-symbol">JS</div>
+                            <span class="tech-type">INTERAÇÃO</span>
+                        </div>
+
+                        <h3>JavaScript</h3>
+
+                        <p>
+                            Adiciona lógica, interatividade e comportamento
+                            dinâmico às páginas e aplicações web.
+                        </p>
+
+                        <div class="tech-example">
+                            <span>FUNÇÃO</span>
+                            <strong>Criar comportamentos</strong>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="concept-box">
+                    <div class="concept-title">HTML + CSS + JavaScript</div>
+                    <p>
+                        Essas três tecnologias formam uma base fundamental do
+                        Front-end: o HTML organiza, o CSS apresenta e o JavaScript
+                        adiciona comportamento e interação.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BACK-END -->
+        <section class="section section-darker" id="backend">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-number">04</span>
+                    <div>
+                        <span class="section-label">PROCESSAMENTO</span>
+                        <h2>Back-end</h2>
+                    </div>
+                </div>
+
+                <div class="section-intro">
+                    <p>
+                        O Back-end funciona principalmente nos servidores. Ele
+                        recebe solicitações, aplica regras de negócio, processa
+                        informações e conversa com bancos de dados e outros serviços.
+                    </p>
+                </div>
+
+                <div class="backend-layout">
+                    <div class="backend-description">
+                        <div class="symbol">{ }</div>
+
+                        <h3>O que acontece por trás da interface?</h3>
+
+                        <p>
+                            Quando uma aplicação precisa realizar uma operação,
+                            como autenticar um usuário ou consultar informações,
+                            o Back-end pode receber essa solicitação e determinar
+                            o que deve acontecer.
+                        </p>
+
+                        <p>
+                            Existem diversas linguagens e ambientes capazes de
+                            desempenhar esse papel. A escolha depende do projeto,
+                            da equipe e das necessidades da aplicação.
+                        </p>
+                    </div>
+
+                    <div class="language-list">
+                        <div class="language-item">
+                            <span class="language-number">01</span>
+                            <div>
+                                <h3>JavaScript / Node.js</h3>
+                                <p>
+                                    Permite utilizar JavaScript também no lado
+                                    do servidor por meio do ambiente Node.js.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="language-item">
+                            <span class="language-number">02</span>
+                            <div>
+                                <h3>Python</h3>
+                                <p>
+                                    Linguagem conhecida pela sintaxe relativamente
+                                    simples e utilizada em diferentes tipos de sistemas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="language-item">
+                            <span class="language-number">03</span>
+                            <div>
+                                <h3>PHP</h3>
+                                <p>
+                                    Linguagem tradicionalmente muito presente no
+                                    desenvolvimento de aplicações e sites dinâmicos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="language-item">
+                            <span class="language-number">04</span>
+                            <div>
+                                <h3>Java</h3>
+                                <p>
+                                    Utilizada em aplicações de diferentes escalas,
+                                    incluindo sistemas corporativos e serviços web.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="language-item">
+                            <span class="language-number">05</span>
+                            <div>
+                                <h3>C#</h3>
+                                <p>
+                                    Linguagem utilizada no ecossistema .NET para
+                                    desenvolver aplicações e serviços.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="language-item">
+                            <span class="language-number">06</span>
+                            <div>
+                                <h3>Ruby</h3>
+                                <p>
+                                    Linguagem conhecida pela sintaxe expressiva e
+                                    utilizada também no desenvolvimento de aplicações web.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BANCO DE DADOS -->
+        <section class="section" id="database">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-number">05</span>
+                    <div>
+                        <span class="section-label">ARMAZENAMENTO</span>
+                        <h2>Banco de Dados</h2>
+                    </div>
+                </div>
+
+                <div class="section-intro">
+                    <p>
+                        Bancos de dados são utilizados para armazenar e organizar
+                        informações. Em uma aplicação web, eles permitem que dados
+                        importantes sejam mantidos e posteriormente consultados,
+                        alterados ou removidos.
+                    </p>
+                </div>
+
+                <div class="database-grid">
+                    <article class="database-card">
+                        <div class="database-icon">▤</div>
+
+                        <span class="database-label">TIPO 01</span>
+                        <h3>Bancos Relacionais</h3>
+
+                        <p>
+                            Organizam os dados principalmente em tabelas formadas
+                            por linhas e colunas. As informações podem se relacionar
+                            entre diferentes tabelas.
+                        </p>
+
+                        <div class="database-feature">
+                            <span>✓</span>
+                            <strong>Estrutura organizada</strong>
+                        </div>
+
+                        <div class="database-feature">
+                            <span>✓</span>
+                            <strong>Relacionamento entre dados</strong>
+                        </div>
+                    </article>
+
+                    <article class="database-card">
+                        <div class="database-icon">◇</div>
+
+                        <span class="database-label">TIPO 02</span>
+                        <h3>Bancos Não Relacionais</h3>
+
+                        <p>
+                            Também chamados de NoSQL, utilizam modelos mais flexíveis
+                            para armazenar determinados tipos de informação.
+                        </p>
+
+                        <div class="database-feature">
+                            <span>✓</span>
+                            <strong>Estrutura mais flexível</strong>
+                        </div>
+
+                        <div class="database-feature">
+                            <span>✓</span>
+                            <strong>Diferentes modelos de armazenamento</strong>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="simple-explanation">
+                    <span class="simple-icon">i</span>
+                    <p>
+                        <strong>Em termos simples:</strong> o banco de dados funciona
+                        como uma memória organizada da aplicação. Ele guarda as
+                        informações para que o sistema possa utilizá-las quando necessário.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGIAS MODERNAS -->
+        <section class="section section-darker" id="moderno">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-number">06</span>
+                    <div>
+                        <span class="section-label">ECOSSISTEMA</span>
+                        <h2>Desenvolvimento Web moderno</h2>
+                    </div>
+                </div>
+
+                <div class="modern-grid">
+                    <article class="modern-card">
+                        <span class="modern-number">01</span>
+
+                        <h3>Responsividade</h3>
+                        <p>
+                            Capacidade de uma interface se adaptar a diferentes
+                            tamanhos de tela, como computadores, tablets e smartphones.
+                        </p>
+                    </article>
+
+                    <article class="modern-card">
+                        <span class="modern-number">02</span>
+
+                        <h3>APIs</h3>
+                        <p>
+                            Interfaces que permitem que diferentes sistemas ou
+                            serviços troquem informações de maneira organizada.
+                        </p>
+                    </article>
+
+                    <article class="modern-card">
+                        <span class="modern-number">03</span>
+
+                        <h3>Frameworks e bibliotecas</h3>
+                        <p>
+                            Conjuntos de ferramentas e recursos que ajudam a
+                            desenvolver aplicações de forma mais estruturada e produtiva.
+                        </p>
+                    </article>
+
+                    <article class="modern-card">
+                        <span class="modern-number">04</span>
+
+                        <h3>Segurança</h3>
+                        <p>
+                            Envolve proteger aplicações, informações e usuários
+                            contra acessos indevidos e diferentes tipos de ameaças.
+                        </p>
+                    </article>
+
+                    <article class="modern-card">
+                        <span class="modern-number">05</span>
+
+                        <h3>Performance</h3>
+                        <p>
+                            Busca fazer com que páginas e aplicações carreguem e
+                            respondam rapidamente, utilizando os recursos de maneira eficiente.
+                        </p>
+                    </article>
+
+                    <article class="modern-card">
+                        <span class="modern-number">06</span>
+
+                        <h3>Acessibilidade</h3>
+                        <p>
+                            Procura garantir que pessoas com diferentes necessidades
+                            possam perceber, navegar e utilizar a aplicação.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUMO -->
+        <section class="section summary-section">
+            <div class="container">
+                <div class="summary-box">
+                    <div class="summary-content">
+                        <span class="section-label">07 · CONCLUSÃO</span>
+
+                        <h2>Um ecossistema de tecnologias</h2>
+
+                        <p>
+                            O Desenvolvimento Web reúne diferentes tecnologias
+                            trabalhando em conjunto. HTML, CSS e JavaScript formam
+                            uma base importante para o Front-end, enquanto diferentes
+                            linguagens podem ser utilizadas no Back-end.
+                        </p>
+
+                        <p>
+                            Os bancos de dados armazenam as informações utilizadas
+                            pelas aplicações, enquanto conceitos como segurança,
+                            acessibilidade, performance e responsividade ajudam a
+                            construir experiências mais completas e confiáveis.
+                        </p>
+                    </div>
+
+                    <div class="summary-diagram">
+                        <div class="summary-item">
+                            <span>01</span>
+                            <strong>Interface</strong>
+                            <small>HTML · CSS · JavaScript</small>
+                        </div>
+
+                        <div class="summary-line"></div>
+
+                        <div class="summary-item">
+                            <span>02</span>
+                            <strong>Processamento</strong>
+                            <small>Back-end · APIs</small>
+                        </div>
+
+                        <div class="summary-line"></div>
+
+                        <div class="summary-item">
+                            <span>03</span>
+                            <strong>Dados</strong>
+                            <small>Banco de Dados</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <span>DESENVOLVIMENTO WEB</span>
+            <p>Conteúdo educativo e informativo</p>
+        </div>
+    </footer>
+</body>
+</html>
