@@ -426,10 +426,30 @@ h3 {
     letter-spacing: 0.12em;
 }
 
-.tech-example strong {
+.new-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-page strong {
     color: #dbe1e8;
     font-size: 0.85rem;
     font-weight: 500;
+}
+
+.new-page i {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    background: var(--accent-soft);
+    padding: 1px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.new-page i:hover {
+    background: var(--border-light);
 }
 
 .concept-box {
