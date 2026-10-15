@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Aprenda a estruturar páginas web com elementos, atributos, semântica e formulários."
+    >
+    <title>Guia de HTML | Guia Front-end</title>
+    <link rel="stylesheet" href="css/guia.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="point-one">
+                ● GUIA EDUCATIVO · FRONT-END
+            </div>
+
+            <h1>Guia de <span>HTML</span></h1>
+
+            <p>
+                Aprenda a estruturar páginas web com elementos,
+                atributos, semântica e formulários.
+            </p>
+
+            <div class="tags">
+                <span>Estrutura</span>
+                <span>Semântica</span>
+                <span>Atributos</span>
+                <span>Acessibilidade</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="introducao">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">01</span>
+
+                    <div>
+                        <span class="label">CONCEITO</span>
+                        <h2>Introdução ao HTML</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    HTML (HyperText Markup Language) é uma linguagem
+                    de marcação que descreve a estrutura e o significado
+                    do conteúdo de uma página. Organiza títulos, textos,
+                    links, imagens, listas, tabelas e formulários;
+                    não é uma linguagem de programação.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>HTML, CSS e JavaScript</h3>
+
+                        <p>
+                            HTML estrutura o conteúdo; CSS controla sua
+                            apresentação; JavaScript acrescenta lógica
+                            e interação. As três tecnologias trabalham
+                            em conjunto.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Estrutura do documento</h3>
+
+                        <p>
+                            <code>&lt;!DOCTYPE html&gt;</code> identifica
+                            HTML moderno; <code>html</code> envolve o
+                            documento; <code>head</code> contém metadados;
+                            <code>meta</code> define informações como
+                            UTF-8 e viewport; <code>title</code> define
+                            o título da aba; <code>body</code> contém
+                            o conteúdo visível.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="code">
+                    <div class="code-title">
+                        Estrutura mínima
+                    </div>
+
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Minha página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Olá, mundo!&lt;/h1&gt;
+    &lt;p&gt;Meu primeiro documento HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="dark" id="fundamentos">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">02</span>
+
+                    <div>
+                        <span class="label">ELEMENTOS</span>
+                        <h2>Tags por finalidade</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    As tags identificam elementos do documento.
+                    Escolha cada elemento pelo significado do conteúdo,
+                    não apenas pela aparência.
+                </p>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Textos</h3>
+
+                        <p>
+                            <code>h1</code> a <code>h6</code> são títulos
+                            hierárquicos; <code>p</code> cria parágrafos;
+                            <code>strong</code> indica importância;
+                            <code>em</code> dá ênfase;
+                            <code>small</code> representa observações
+                            secundárias; <code>span</code> agrupa texto
+                            em linha; <code>br</code> quebra a linha
+                            quando necessário ao conteúdo.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Estrutura semântica</h3>
+
+                        <p>
+                            <code>header</code> é cabeçalho;
+                            <code>nav</code> agrupa navegação;
+                            <code>main</code> contém o conteúdo principal;
+                            <code>section</code> agrupa um tema;
+                            <code>article</code> é conteúdo independente;
+                            <code>aside</code> é complementar;
+                            <code>footer</code> é rodapé.
+                            <code>div</code> é um contêiner genérico.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Links e mídia</h3>
+
+                        <p>
+                            <code>a</code> cria links;
+                            <code>img</code> exibe imagens;
+                            <code>audio</code> e <code>video</code>
+                            incorporam mídia; <code>iframe</code>
+                            incorpora outra página. Imagens informativas
+                            devem ter texto alternativo em <code>alt</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Listas</h3>
+
+                        <p>
+                            <code>ul</code> cria listas sem ordem;
+                            <code>ol</code> cria listas ordenadas;
+                            <code>li</code> representa cada item.
+                            Escolha de acordo com o sentido da informação.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Tabelas</h3>
+
+                        <p>
+                            <code>table</code> cria tabela;
+                            <code>thead</code> agrupa cabeçalhos;
+                            <code>tbody</code> agrupa dados;
+                            <code>tr</code> é linha;
+                            <code>th</code> é célula de cabeçalho;
+                            <code>td</code> é célula de dados.
+                            Use tabelas para dados tabulares.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Formulários</h3>
+
+                        <p>
+                            <code>form</code> agrupa campos;
+                            <code>label</code> identifica campo;
+                            <code>input</code> recebe valores;
+                            <code>textarea</code> recebe texto longo;
+                            <code>select</code> e <code>option</code>
+                            criam opções; <code>button</code> cria botão.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Complementares</h3>
+
+                        <p>
+                            <code>figure</code> agrupa mídia;
+                            <code>figcaption</code> adiciona legenda;
+                            <code>time</code> marca data/hora;
+                            <code>details</code> cria conteúdo expansível
+                            e <code>summary</code> seu rótulo.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="exemplos">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">03</span>
+
+                    <div>
+                        <span class="label">ATRIBUTOS</span>
+                        <h2>Atributos HTML</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Atributos fornecem informações ou configuram
+                    o comportamento de um elemento e geralmente
+                    aparecem na tag de abertura como
+                    <code>nome="valor"</code>.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Identificação e links</h3>
+
+                        <p>
+                            <code>id</code> identifica um elemento de
+                            forma única; <code>class</code> agrupa
+                            elementos. <code>href</code> define o destino
+                            de um link e <code>target="_blank"</code>
+                            abre outra aba; considere
+                            <code>rel="noopener"</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Mídia e formulários</h3>
+
+                        <p>
+                            <code>src</code> define a origem da mídia
+                            e <code>alt</code> oferece alternativa textual.
+                            <code>type</code> define o tipo do campo;
+                            <code>name</code> é o nome enviado;
+                            <code>value</code> é o valor;
+                            <code>placeholder</code> é uma dica e não
+                            substitui o rótulo; <code>for</code> associa
+                            <code>label</code> e campo.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Estados e dimensões</h3>
+
+                        <p>
+                            <code>required</code> exige preenchimento;
+                            <code>disabled</code> desativa um controle;
+                            <code>checked</code> marca checkbox/radio.
+                            <code>width</code> e <code>height</code>
+                            definem dimensões em elementos compatíveis;
+                            <code>title</code> fornece informação adicional.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>data-* e globais</h3>
+
+                        <p>
+                            <code>data-categoria="livro"</code> guarda
+                            dado personalizado para JavaScript.
+                            Atributos booleanos são ativados pela presença.
+                            Atributos globais incluem <code>id</code>,
+                            <code>class</code>, <code>lang</code>,
+                            <code>hidden</code> e <code>tabindex</code>.
+                        </p>
+                    </article>
+
+                </div>
+
+                <div class="code">
+                    <div class="code-title">
+                        Exemplo de atributos
+                    </div>
+
+                    <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
+&lt;input id="email" name="email" type="email"
+       placeholder="voce@exemplo.com" required&gt;
+
+&lt;a href="https://exemplo.com" target="_blank"
+   rel="noopener"&gt;Abrir exemplo&lt;/a&gt;
+
+&lt;img src="foto.jpg" alt="Pessoa lendo um livro"
+     width="320" height="200"&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="dark" id="boas-praticas">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">04</span>
+
+                    <div>
+                        <span class="label">ACESSIBILIDADE</span>
+                        <h2>Semântica, boas práticas e erros comuns</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Elementos semânticos comunicam o papel do conteúdo
+                    a navegadores, tecnologias assistivas e pessoas
+                    que leem o código. Use <code>div</code> quando
+                    não houver elemento mais apropriado.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Acessibilidade</h3>
+
+                        <p>
+                            Mantenha hierarquia lógica de títulos;
+                            use <code>alt</code> útil em imagens
+                            informativas e <code>alt=""</code> em
+                            imagens decorativas; associe
+                            <code>label</code> aos campos; use links
+                            para navegar e botões para ações.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Evite estes erros</h3>
+
+                        <p>
+                            Não repita <code>id</code>; não use
+                            <code>br</code> para espaçamento visual;
+                            não esqueça o texto alternativo; não use
+                            tabelas para layout; não pule níveis
+                            de título sem motivo nem transforme
+                            uma <code>div</code> em botão sem teclado
+                            e semântica adequados.
+                        </p>
+                    </article>
+
+                </div>
+
+                <div class="code">
+                    <div class="code-title">
+                        Exemplo semântico
+                    </div>
+
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Clube de leitura&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav aria-label="Principal"&gt;
+    &lt;a href="#livros"&gt;Livros&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;section id="livros"&gt;
+        &lt;h2&gt;Livro em destaque&lt;/h2&gt;
+
+        &lt;article&gt;
+            &lt;h3&gt;O pequeno príncipe&lt;/h3&gt;
+            &lt;p&gt;Uma leitura para refletir sobre relações.&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Conteúdo educativo.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="resumo">
+            <div class="container">
+                <div class="summary">
+                    <div>
+                        <span class="label">SÍNTESE FINAL</span>
+
+                        <h2>O que levar deste guia</h2>
+
+                        <p>
+                            HTML descreve a estrutura e o significado
+                            do conteúdo. Elementos semânticos, títulos
+                            bem organizados e alternativas acessíveis
+                            tornam os documentos mais claros e fáceis
+                            de manter.
+                        </p>
+                    </div>
+
+                    <div class="summary-list">
+                        <div>
+                            <strong>Entenda o propósito</strong>
+                            <small>
+                                Saiba qual problema a tecnologia resolve.
+                            </small>
+                        </div>
+
+                        <div>
+                            <strong>Pratique em etapas</strong>
+                            <small>
+                                Teste exemplos e observe o resultado.
+                            </small>
+                        </div>
+
+                        <div>
+                            <strong>Priorize clareza</strong>
+                            <small>
+                                Código legível é mais fácil de manter.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container foot">
+            <span>GUIA DE HTML</span>
+
+            <p>
+                Material educativo para estudo de Desenvolvimento Web
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
