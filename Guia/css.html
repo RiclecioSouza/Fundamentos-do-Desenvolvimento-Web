@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Entenda seletores, propriedades, layouts, responsividade, transformações e animações para criar interfaces consistentes."
+    >
+    <title>Guia de CSS | Guia Front-end</title>
+    <link rel="stylesheet" href="estilo/guia.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="point-one">
+                ● GUIA EDUCATIVO · FRONT-END
+            </div>
+
+            <h1>
+                Guia de <span>CSS</span>
+            </h1>
+
+            <p>
+                Entenda seletores, propriedades, layouts, responsividade,
+                transformações e animações para criar interfaces consistentes.
+            </p>
+
+            <div class="tags">
+                <span>Seletores</span>
+                <span>Layout</span>
+                <span>Responsividade</span>
+                <span>Animações</span>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section id="introducao">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">01</span>
+
+                    <div>
+                        <span class="label">CONCEITO</span>
+                        <h2>Introdução ao CSS</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    CSS (Cascading Style Sheets) controla a apresentação
+                    de documentos HTML: cores, fontes, espaçamentos,
+                    dimensões, posicionamento, layouts, transições e
+                    adaptação a telas diferentes.
+                </p>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Formas de aplicar</h3>
+
+                        <p>
+                            Inline: atributo <code>style</code>; interno:
+                            regras em <code>&lt;style&gt;</code>; externo:
+                            arquivo separado ligado com
+                            <code>&lt;link rel="stylesheet"&gt;</code>.
+                            O arquivo externo favorece organização e reutilização.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Anatomia de uma regra</h3>
+
+                        <p>
+                            Uma regra reúne seletor e declaração:
+                            <code>.cartao { padding: 1rem; }</code>.
+                            O seletor escolhe elementos; a propriedade indica
+                            o que configurar e o valor define como.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Cascata e modelo de caixa</h3>
+
+                        <p>
+                            Cascata, herança e especificidade ajudam a
+                            determinar a regra aplicada. A caixa contém
+                            conteúdo, <code>padding</code>, borda e
+                            <code>margin</code>. Com
+                            <code>box-sizing: border-box</code>, largura
+                            e altura incluem preenchimento e borda.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de código -->
+                <div class="code">
+                    <div class="code-title">Regra CSS</div>
+
+                    <pre><code>.cartao {
+    color: #f1f4f8;
+    background: #11151b;
+    padding: 1.25rem;
+    border: 1px solid #242a33;
+    border-radius: 14px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="dark" id="fundamentos">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">02</span>
+
+                    <div>
+                        <span class="label">SELETORES</span>
+                        <h2>Seletores e estados</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Seletores escolhem quais elementos receberão estilos.
+                    Combine-os com intenção e evite especificidade excessiva.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Seletores básicos</h3>
+
+                        <p>
+                            Elemento: <code>p</code>; classe: <code>.card</code>;
+                            ID: <code>#principal</code>; universal:
+                            <code>*</code>; atributo:
+                            <code>input[required]</code>. Separe seletores
+                            agrupados por vírgula: <code>h1, h2, h3</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Combinadores</h3>
+
+                        <p>
+                            Descendente: <code>.menu a</code>; filho direto:
+                            <code>.menu &gt; a</code>; irmão adjacente:
+                            <code>h2 + p</code>; irmãos gerais:
+                            <code>h2 ~ p</code>. Eles descrevem relações
+                            na árvore HTML.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Pseudoclasses</h3>
+
+                        <p>
+                            Estados e posições:
+                            <code>:hover</code>, <code>:active</code>,
+                            <code>:focus</code>, <code>:focus-visible</code>,
+                            <code>:focus-within</code>, <code>:visited</code>,
+                            <code>:link</code>, <code>:first-child</code>,
+                            <code>:last-child</code>, <code>:nth-child()</code>,
+                            <code>:not()</code>, <code>:is()</code>,
+                            <code>:where()</code>, <code>:checked</code>,
+                            <code>:disabled</code>, <code>:enabled</code>,
+                            <code>:required</code> e <code>:root</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Pseudoelementos</h3>
+
+                        <p>
+                            <code>::before</code>, <code>::after</code>,
+                            <code>::first-letter</code>,
+                            <code>::first-line</code>,
+                            <code>::placeholder</code>,
+                            <code>::selection</code> e <code>::marker</code>
+                            estilizam partes ou criam conteúdo decorativo.
+                            Pseudoclasses usam normalmente um dois-pontos;
+                            pseudoelementos, dois.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplos de seletores -->
+                <div class="code">
+                    <div class="code-title">Exemplos</div>
+
+                    <pre><code>.card:hover {
+    border-color: #55b7ff;
+}
+
+input:focus-visible {
+    outline: 2px solid #55b7ff;
+}
+
+.lista &gt; li:first-child {
+    font-weight: 700;
+}
+
+input[required] {
+    border-left: 3px solid #ff9e6d;
+}
+
+.titulo::after {
+    content: " *";
+    color: #ff9e6d;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="exemplos">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">03</span>
+
+                    <div>
+                        <span class="label">PROPRIEDADES</span>
+                        <h2>Propriedades, unidades e funções</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    O CSS oferece recursos para compor interfaces flexíveis.
+                    Escolha unidades e funções conforme o contexto em vez
+                    de fixar todas as dimensões em pixels.
+                </p>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Aparência e texto</h3>
+
+                        <p>
+                            <code>color</code>, <code>background</code>,
+                            gradientes, <code>opacity</code>,
+                            <code>font-family</code>, <code>font-size</code>,
+                            <code>font-weight</code> e <code>text-align</code>
+                            controlam cores, fundos e tipografia.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Espaço e posicionamento</h3>
+
+                        <p>
+                            <code>margin</code>, <code>padding</code>,
+                            <code>border</code>, <code>width</code>,
+                            <code>height</code>, <code>display</code>,
+                            <code>position</code>, <code>z-index</code>,
+                            <code>overflow</code> e <code>box-sizing</code>
+                            controlam dimensões, fluxo e camadas.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Flexbox e Grid</h3>
+
+                        <p>
+                            Flexbox organiza itens em uma dimensão, linha
+                            ou coluna. Grid organiza linhas e colunas.
+                            Ambos criam layouts adaptáveis sem depender
+                            de posicionamento absoluto para tudo.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Unidades</h3>
+
+                        <p>
+                            <code>px</code> é unidade CSS fixa;
+                            <code>%</code> depende do contexto;
+                            <code>em</code> depende do tamanho de fonte
+                            relevante; <code>rem</code> usa a fonte raiz;
+                            <code>vw</code> e <code>vh</code> são relativos
+                            à viewport.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Variáveis e funções</h3>
+
+                        <p>
+                            Defina tokens em <code>:root</code> e reutilize
+                            com <code>var()</code>. <code>calc()</code>
+                            calcula expressões; <code>min()</code>/
+                            <code>max()</code> escolhem limites;
+                            <code>clamp()</code> combina mínimo, valor
+                            preferido e máximo; <code>minmax()</code> e
+                            <code>repeat()</code> ajudam a definir grades.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Cores e gradientes</h3>
+
+                        <p>
+                            <code>rgb()</code>/<code>rgba()</code> e
+                            <code>hsl()</code>/<code>hsla()</code>
+                            representam cores. <code>linear-gradient()</code>
+                            cria transição linear e <code>radial-gradient()</code>
+                            cria transição radial.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de variáveis e layout -->
+                <div class="code">
+                    <div class="code-title">Variáveis e layout fluido</div>
+
+                    <pre><code>:root {
+    --espaco: 1rem;
+    --azul: #55b7ff;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--espaco);
+}
+
+.titulo {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    color: var(--azul);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="dark" id="boas-praticas">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">04</span>
+
+                    <div>
+                        <span class="label">MOVIMENTO E ADAPTAÇÃO</span>
+                        <h2>Transformações, transições e responsividade</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Transformações alteram visualmente posição, rotação,
+                    escala ou inclinação. Transições suavizam mudanças
+                    entre estados; animações executam sequências definidas
+                    em quadros-chave.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Transformações</h3>
+
+                        <p>
+                            <code>translate()</code>, <code>translateX()</code>
+                            e <code>translateY()</code> deslocam;
+                            <code>rotate()</code> gira;
+                            <code>scale()</code>, <code>scaleX()</code>
+                            e <code>scaleY()</code> redimensionam;
+                            <code>skew()</code> inclina.
+                            <code>transform-origin</code> muda a origem;
+                            <code>rotateX()</code>, <code>rotateY()</code>
+                            e <code>translateZ()</code> permitem
+                            transformações 3D.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Transições</h3>
+
+                        <p>
+                            <code>transition-property</code> escolhe
+                            a propriedade; <code>transition-duration</code>
+                            define duração;
+                            <code>transition-timing-function</code>
+                            define ritmo; <code>transition-delay</code>
+                            define atraso. Funções: <code>ease</code>,
+                            <code>linear</code>, <code>ease-in</code>,
+                            <code>ease-out</code>, <code>ease-in-out</code>
+                            e <code>cubic-bezier()</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Animações</h3>
+
+                        <p>
+                            <code>@keyframes</code> define etapas e
+                            <code>animation</code> configura duração,
+                            repetição, direção e estado final. Use
+                            transições para mudanças de estado e animações
+                            para sequências próprias.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Responsividade</h3>
+
+                        <p>
+                            <code>@media</code> aplica regras sob condições,
+                            como largura da tela. Combine layouts fluidos
+                            com Flexbox/Grid. <code>prefers-reduced-motion</code>
+                            permite respeitar preferências de movimento
+                            reduzido.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de responsividade e acessibilidade -->
+                <div class="code">
+                    <div class="code-title">
+                        Exemplo responsivo e acessível
+                    </div>
+
+                    <pre><code>.botao {
+    transition: transform .2s ease;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .grade {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}</code></pre>
+                </div>
+
+                <div class="note">
+                    <strong>Importante:</strong>
+                    <code>::before</code> e <code>::after</code>
+                    precisam de <code>content</code>. Use-os para decoração,
+                    não para informação essencial nem para substituir
+                    elementos semânticos.
+                </div>
+            </div>
+        </section>
+
+        <section id="resumo">
+            <div class="container">
+                <div class="summary">
+                    <div>
+                        <span class="label">SÍNTESE FINAL</span>
+
+                        <h2>O que levar deste guia</h2>
+
+                        <p>
+                            CSS controla a apresentação. Dominar seletores,
+                            modelo de caixa, Flexbox/Grid, variáveis e
+                            media queries ajuda a construir interfaces
+                            consistentes, responsivas, acessíveis e fáceis
+                            de manter.
+                        </p>
+                    </div>
+
+                    <div class="summary-list">
+
+                        <div>
+                            <strong>Entenda o propósito</strong>
+                            <small>
+                                Saiba qual problema a tecnologia resolve.
+                            </small>
+                        </div>
+
+                        <div>
+                            <strong>Pratique em etapas</strong>
+                            <small>
+                                Teste exemplos e observe o resultado.
+                            </small>
+                        </div>
+
+                        <div>
+                            <strong>Priorize clareza</strong>
+                            <small>
+                                Código legível é mais fácil de manter.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container foot">
+            <span>GUIA DE CSS</span>
+
+            <p>
+                Material educativo para estudo de Desenvolvimento Web
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
