@@ -1,444 +1,921 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
         name="description"
-        content="Aprenda a estruturar páginas web com elementos, atributos, semântica e formulários."
+        content="Um guia progressivo e prático para aprender HTML do zero: estrutura, texto, links, imagens, semântica e formulários."
     >
-    <title>Guia de HTML | Guia Front-end</title>
+    <title>HTML do zero | Guia Front-end</title>
     <link rel="stylesheet" href="estilo/guia.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#conteudo">
+        Pular para o conteúdo
+    </a>
+
     <header class="hero">
-        <div class="container">
-            <div class="point-one">
-                ● GUIA EDUCATIVO · FRONT-END
-            </div>
-
-            <h1>Guia de <span>HTML</span></h1>
-
-            <p>
-                Aprenda a estruturar páginas web com elementos,
-                atributos, semântica e formulários.
+        <div class="container hero-inner">
+            <p class="eyebrow">
+                <span aria-hidden="true">●</span>
+                GUIA EDUCATIVO · FRONT-END
             </p>
 
-            <div class="tags">
-                <span>Estrutura</span>
-                <span>Semântica</span>
-                <span>Atributos</span>
-                <span>Acessibilidade</span>
-            </div>
+            <h1>
+                HTML <span>do zero</span>
+            </h1>
+
+            <p class="hero-lead">
+                Aprenda a dar estrutura e significado às páginas da web.
+                Leia uma etapa, experimente o código e avance quando
+                conseguir explicar o que ele faz.
+            </p>
+
+            <ul class="tags" aria-label="Temas do guia">
+                <li>Estrutura</li>
+                <li>Conteúdo</li>
+                <li>Semântica</li>
+                <li>Acessibilidade</li>
+            </ul>
+
+            <nav class="toc" aria-label="Neste guia">
+                <a href="#comecar">Começar</a>
+                <a href="#texto">Texto</a>
+                <a href="#links-imagens">Links e imagens</a>
+                <a href="#organizar">Organização</a>
+                <a href="#formularios">Formulários</a>
+                <a href="#projeto">Projeto final</a>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section id="introducao">
+    <main id="conteudo">
+        <!-- Seção 01: Introdução ao HTML -->
+        <section id="comecar">
             <div class="container">
                 <div class="heading">
                     <span class="num">01</span>
 
                     <div>
-                        <span class="label">CONCEITO</span>
-                        <h2>Introdução ao HTML</h2>
+                        <p class="label">PRIMEIROS PASSOS</p>
+                        <h2>O que é HTML?</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    HTML (HyperText Markup Language) é uma linguagem
-                    de marcação que descreve a estrutura e o significado
-                    do conteúdo de uma página. Organiza títulos, textos,
-                    links, imagens, listas, tabelas e formulários;
-                    não é uma linguagem de programação.
+                    HTML significa <i>HyperText Markup Language</i>
+                    (Linguagem de Marcação de Hipertexto). Ele descreve
+                    o conteúdo e a estrutura de uma página usando elementos.
+                    Pense numa página como um documento: HTML organiza
+                    títulos, parágrafos, imagens, links e outras partes
+                    para que navegadores e tecnologias assistivas entendam
+                    suas relações.
                 </p>
 
                 <div class="grid two">
                     <article class="card">
-                        <h3>HTML, CSS e JavaScript</h3>
+                        <h3>Estrutura, aparência e comportamento</h3>
 
                         <p>
-                            HTML estrutura o conteúdo; CSS controla sua
-                            apresentação; JavaScript acrescenta lógica
-                            e interação. As três tecnologias trabalham
-                            em conjunto.
+                            <strong>HTML</strong> dá estrutura e significado.
+                            <strong>CSS</strong> define a apresentação visual,
+                            como cores e espaçamento.
+                            <strong>JavaScript</strong> pode responder a ações
+                            e atualizar a página. No começo, concentre-se
+                            em HTML: uma página útil não precisa de efeitos
+                            para ser bem estruturada.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Estrutura do documento</h3>
+                        <h3>Elementos e tags</h3>
 
                         <p>
-                            <code>&lt;!DOCTYPE html&gt;</code> identifica
-                            HTML moderno; <code>html</code> envolve o
-                            documento; <code>head</code> contém metadados;
-                            <code>meta</code> define informações como
-                            UTF-8 e viewport; <code>title</code> define
-                            o título da aba; <code>body</code> contém
-                            o conteúdo visível.
+                            Uma tag é uma instrução entre sinais de menor
+                            e maior, como <code>&lt;p&gt;</code>. Um elemento
+                            geralmente reúne tag de abertura, conteúdo e tag
+                            de fechamento: <code>&lt;p&gt;Olá!&lt;/p&gt;</code>.
+                            Algumas tags, como <code>&lt;img&gt;</code> e
+                            <code>&lt;meta&gt;</code>, não envolvem conteúdo
+                            e não têm fechamento.
                         </p>
                     </article>
                 </div>
 
+                <!-- Exemplo de código -->
                 <div class="code">
-                    <div class="code-title">
-                        Estrutura mínima
-                    </div>
+                    <p class="code-title">Seu primeiro documento</p>
 
-                    <pre><code>&lt;!DOCTYPE html&gt;
+                    <pre><code>&lt;!doctype html&gt;
 &lt;html lang="pt-BR"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Minha página&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Olá, mundo!&lt;/h1&gt;
-    &lt;p&gt;Meu primeiro documento HTML.&lt;/p&gt;
-&lt;/body&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Minha primeira página&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Olá, mundo!&lt;/h1&gt;
+        &lt;p&gt;Esta é minha primeira página.&lt;/p&gt;
+    &lt;/body&gt;
 &lt;/html&gt;</code></pre>
                 </div>
+
+                <!-- Explicação da estrutura HTML -->
+                <div class="explain">
+                    <h3>Entenda cada parte</h3>
+
+                    <ul>
+                        <li>
+                            <code>&lt;!doctype html&gt;</code> informa
+                            ao navegador que o documento usa HTML moderno.
+                        </li>
+
+                        <li>
+                            <code>&lt;html lang="pt-BR"&gt;</code> envolve
+                            a página; o idioma ajuda leitores de tela
+                            e ferramentas de tradução.
+                        </li>
+
+                        <li>
+                            <code>&lt;head&gt;</code> guarda informações
+                            sobre o documento, que em geral não aparecem
+                            no conteúdo da página.
+                        </li>
+
+                        <li>
+                            <code>charset</code> permite exibir corretamente
+                            caracteres como acentos; <code>viewport</code>
+                            ajuda a página a caber em telas móveis.
+                        </li>
+
+                        <li>
+                            <code>&lt;title&gt;</code> define o título
+                            da aba. <code>&lt;body&gt;</code> contém
+                            o conteúdo apresentado à pessoa.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Atividade prática -->
+                <aside class="practice">
+                    <h3>Pratique · sua primeira página</h3>
+
+                    <ol>
+                        <li>
+                            Crie um arquivo chamado <code>index.html</code>
+                            em um editor de texto.
+                        </li>
+
+                        <li>
+                            Digite a estrutura acima, trocando o título
+                            e o parágrafo por informações suas.
+                        </li>
+
+                        <li>
+                            Salve e abra o arquivo no navegador. Depois
+                            mude uma frase, salve novamente e atualize
+                            a página.
+                        </li>
+                    </ol>
+
+                    <p>
+                        <strong>Observe:</strong> o texto de
+                        <code>&lt;title&gt;</code> aparece na aba;
+                        o texto do <code>&lt;body&gt;</code> aparece
+                        na página.
+                    </p>
+                </aside>
+
+                <!-- Verificação de aprendizagem -->
+                <aside class="checkpoint">
+                    <h3>Confira antes de seguir</h3>
+
+                    <ul>
+                        <li>Sei explicar a diferença entre HTML e CSS?</li>
+                        <li>Sei localizar o conteúdo visível dentro de <code>&lt;body&gt;</code>?</li>
+                        <li>Minha página tem idioma, codificação e título?</li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
-        <section class="dark" id="fundamentos">
+        <!-- Seção 02: Títulos, parágrafos e ênfase -->
+        <section class="dark" id="texto">
             <div class="container">
                 <div class="heading">
                     <span class="num">02</span>
 
                     <div>
-                        <span class="label">ELEMENTOS</span>
-                        <h2>Tags por finalidade</h2>
+                        <p class="label">ESCREVER CONTEÚDO</p>
+                        <h2>Títulos, parágrafos e ênfase</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    As tags identificam elementos do documento.
-                    Escolha cada elemento pelo significado do conteúdo,
-                    não apenas pela aparência.
+                    Use elementos de texto pelo papel que o conteúdo
+                    desempenha. A aparência pode ser ajustada depois
+                    com CSS; escolher o elemento pelo significado mantém
+                    a página compreensível mesmo quando muda de tela
+                    ou é lida por tecnologia assistiva.
                 </p>
 
-                <div class="grid">
+                <div class="grid two">
                     <article class="card">
-                        <h3>Textos</h3>
+                        <h3>Uma hierarquia de títulos</h3>
 
                         <p>
-                            <code>h1</code> a <code>h6</code> são títulos
-                            hierárquicos; <code>p</code> cria parágrafos;
-                            <code>strong</code> indica importância;
-                            <code>em</code> dá ênfase;
-                            <code>small</code> representa observações
-                            secundárias; <code>span</code> agrupa texto
-                            em linha; <code>br</code> quebra a linha
-                            quando necessário ao conteúdo.
+                            <code>&lt;h1&gt;</code> representa o título
+                            principal da página ou do assunto.
+                            <code>&lt;h2&gt;</code> apresenta uma seção;
+                            <code>&lt;h3&gt;</code>, um tópico dentro dela.
+                            Siga a hierarquia do conteúdo, como num sumário.
+                            Não escolha um nível apenas porque seu tamanho
+                            parece bonito.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Estrutura semântica</h3>
+                        <h3>Parágrafos e ênfase</h3>
 
                         <p>
-                            <code>header</code> é cabeçalho;
-                            <code>nav</code> agrupa navegação;
-                            <code>main</code> contém o conteúdo principal;
-                            <code>section</code> agrupa um tema;
-                            <code>article</code> é conteúdo independente;
-                            <code>aside</code> é complementar;
-                            <code>footer</code> é rodapé.
-                            <code>div</code> é um contêiner genérico.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Links e mídia</h3>
-
-                        <p>
-                            <code>a</code> cria links;
-                            <code>img</code> exibe imagens;
-                            <code>audio</code> e <code>video</code>
-                            incorporam mídia; <code>iframe</code>
-                            incorpora outra página. Imagens informativas
-                            devem ter texto alternativo em <code>alt</code>.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Listas</h3>
-
-                        <p>
-                            <code>ul</code> cria listas sem ordem;
-                            <code>ol</code> cria listas ordenadas;
-                            <code>li</code> representa cada item.
-                            Escolha de acordo com o sentido da informação.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Tabelas</h3>
-
-                        <p>
-                            <code>table</code> cria tabela;
-                            <code>thead</code> agrupa cabeçalhos;
-                            <code>tbody</code> agrupa dados;
-                            <code>tr</code> é linha;
-                            <code>th</code> é célula de cabeçalho;
-                            <code>td</code> é célula de dados.
-                            Use tabelas para dados tabulares.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Formulários</h3>
-
-                        <p>
-                            <code>form</code> agrupa campos;
-                            <code>label</code> identifica campo;
-                            <code>input</code> recebe valores;
-                            <code>textarea</code> recebe texto longo;
-                            <code>select</code> e <code>option</code>
-                            criam opções; <code>button</code> cria botão.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Complementares</h3>
-
-                        <p>
-                            <code>figure</code> agrupa mídia;
-                            <code>figcaption</code> adiciona legenda;
-                            <code>time</code> marca data/hora;
-                            <code>details</code> cria conteúdo expansível
-                            e <code>summary</code> seu rótulo.
+                            <code>&lt;p&gt;</code> marca um parágrafo.
+                            <code>&lt;strong&gt;</code> indica importância;
+                            <code>&lt;em&gt;</code> dá ênfase na leitura.
+                            Eles não são apenas estilos de negrito e itálico.
+                            Use <code>&lt;br&gt;</code> somente quando
+                            uma quebra de linha fizer parte do conteúdo,
+                            como num endereço ou poema.
                         </p>
                     </article>
                 </div>
+
+                <!-- Exemplo de hierarquia de títulos -->
+                <div class="code">
+                    <p class="code-title">Uma hierarquia clara</p>
+
+                    <pre><code>&lt;main&gt;
+    &lt;h1&gt;Meu caderno de jardinagem&lt;/h1&gt;
+    &lt;p&gt;Anotações para cuidar das plantas em casa.&lt;/p&gt;
+
+    &lt;section&gt;
+        &lt;h2&gt;Começando uma horta&lt;/h2&gt;
+        &lt;p&gt;Escolha um local que receba luz suficiente.&lt;/p&gt;
+
+        &lt;h3&gt;Escolha dos vasos&lt;/h3&gt;
+        &lt;p&gt;O tamanho depende das raízes de cada planta.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+                </div>
+
+                <!-- Observação sobre comentários -->
+                <aside class="note">
+                    <strong>Comentário no código:</strong>
+                    use <code>&lt;!-- assim --&gt;</code> para deixar
+                    uma observação que não aparece na página.
+                    Comentários não substituem uma estrutura clara
+                    e podem ser vistos por qualquer pessoa que
+                    inspecione o arquivo.
+                </aside>
+
+                <!-- Atividade prática -->
+                <aside class="practice">
+                    <h3>Pratique · uma página sobre um interesse</h3>
+
+                    <ol>
+                        <li>
+                            Escreva um título principal, uma introdução
+                            e duas seções.
+                        </li>
+
+                        <li>
+                            Dê a cada seção um <code>&lt;h2&gt;</code>
+                            e escreva pelo menos dois parágrafos.
+                        </li>
+
+                        <li>
+                            Adicione um subtópico com <code>&lt;h3&gt;</code>.
+                            Verifique se a ordem dos títulos parece
+                            um sumário lógico.
+                        </li>
+                    </ol>
+                </aside>
+
+                <!-- Erros comuns -->
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>
+                            Usar vários <code>&lt;h1&gt;</code> como forma
+                            de deixar texto grande. Use CSS para aparência
+                            e títulos para hierarquia.
+                        </li>
+
+                        <li>
+                            Usar vários <code>&lt;br&gt;</code> para criar
+                            espaço. Parágrafos e CSS resolvem estrutura
+                            e espaçamento, respectivamente.
+                        </li>
+
+                        <li>
+                            Pular de <code>&lt;h2&gt;</code> para
+                            <code>&lt;h5&gt;</code> por causa do tamanho
+                            padrão do navegador.
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Revisão da seção -->
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        O título descreve o assunto? Cada seção tem
+                        um título que a identifica? Leia só os títulos:
+                        a sequência ainda faz sentido?
+                    </p>
+                </aside>
             </div>
         </section>
 
-        <section id="exemplos">
+        <!-- Seção 03: Links e imagens -->
+        <section id="links-imagens">
             <div class="container">
                 <div class="heading">
                     <span class="num">03</span>
 
                     <div>
-                        <span class="label">ATRIBUTOS</span>
-                        <h2>Atributos HTML</h2>
+                        <p class="label">CONECTAR E ILUSTRAR</p>
+                        <h2>Links e imagens</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    Atributos fornecem informações ou configuram
-                    o comportamento de um elemento e geralmente
-                    aparecem na tag de abertura como
+                    Links levam a outro lugar; imagens acrescentam
+                    conteúdo visual. Em ambos os casos, atributos fornecem
+                    informações importantes. Um atributo aparece na tag
+                    de abertura e costuma ter o formato
                     <code>nome="valor"</code>.
                 </p>
 
                 <div class="grid two">
                     <article class="card">
-                        <h3>Identificação e links</h3>
+                        <h3>Links que explicam o destino</h3>
 
                         <p>
-                            <code>id</code> identifica um elemento de
-                            forma única; <code>class</code> agrupa
-                            elementos. <code>href</code> define o destino
-                            de um link e <code>target="_blank"</code>
-                            abre outra aba; considere
-                            <code>rel="noopener"</code>.
+                            <code>&lt;a&gt;</code> cria um link e
+                            <code>href</code> informa o destino.
+                            O texto clicável deve dizer para onde leva:
+                            “Consulte o catálogo de livros” é mais útil
+                            que “clique aqui”. Um caminho como
+                            <code>contato.html</code> aponta para um
+                            arquivo relativo; uma URL completa aponta
+                            para outro site.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Mídia e formulários</h3>
+                        <h3>Imagens com alternativa</h3>
 
                         <p>
-                            <code>src</code> define a origem da mídia
-                            e <code>alt</code> oferece alternativa textual.
-                            <code>type</code> define o tipo do campo;
-                            <code>name</code> é o nome enviado;
-                            <code>value</code> é o valor;
-                            <code>placeholder</code> é uma dica e não
-                            substitui o rótulo; <code>for</code> associa
-                            <code>label</code> e campo.
+                            <code>&lt;img&gt;</code> insere uma imagem;
+                            <code>src</code> informa onde ela está e
+                            <code>alt</code> oferece uma alternativa textual.
+                            Descreva a informação relevante, não cada
+                            detalhe visual. Se a imagem for puramente
+                            decorativa e não acrescentar conteúdo,
+                            use <code>alt=""</code>.
                         </p>
                     </article>
-
-                    <article class="card">
-                        <h3>Estados e dimensões</h3>
-
-                        <p>
-                            <code>required</code> exige preenchimento;
-                            <code>disabled</code> desativa um controle;
-                            <code>checked</code> marca checkbox/radio.
-                            <code>width</code> e <code>height</code>
-                            definem dimensões em elementos compatíveis;
-                            <code>title</code> fornece informação adicional.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>data-* e globais</h3>
-
-                        <p>
-                            <code>data-categoria="livro"</code> guarda
-                            dado personalizado para JavaScript.
-                            Atributos booleanos são ativados pela presença.
-                            Atributos globais incluem <code>id</code>,
-                            <code>class</code>, <code>lang</code>,
-                            <code>hidden</code> e <code>tabindex</code>.
-                        </p>
-                    </article>
-
                 </div>
 
+                <!-- Exemplo de links e imagens -->
                 <div class="code">
-                    <div class="code-title">
-                        Exemplo de atributos
-                    </div>
+                    <p class="code-title">
+                        Exemplo comentado: links e imagens
+                    </p>
 
-                    <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
-&lt;input id="email" name="email" type="email"
-       placeholder="voce@exemplo.com" required&gt;
+                    <pre><code>&lt;!-- Link para uma página do mesmo site --&gt;
+&lt;a href="contato.html"&gt;Entre em contato&lt;/a&gt;
 
-&lt;a href="https://exemplo.com" target="_blank"
-   rel="noopener"&gt;Abrir exemplo&lt;/a&gt;
+&lt;!-- Link externo; abrir na mesma aba costuma ser mais previsível --&gt;
+&lt;a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"&gt;
+    Leia a documentação de HTML
+&lt;/a&gt;
 
-&lt;img src="foto.jpg" alt="Pessoa lendo um livro"
-     width="320" height="200"&gt;</code></pre>
+&lt;!-- Alt descreve a informação que a imagem transmite --&gt;
+&lt;img
+    src="horta.jpg"
+    alt="Vasos com ervas numa varanda ensolarada"
+    width="640"
+    height="420"
+&gt;</code></pre>
                 </div>
+
+                <!-- Observação sobre dimensões -->
+                <p class="note">
+                    <strong>Sobre dimensões:</strong> largura e altura
+                    ajudam o navegador a reservar espaço antes de a imagem
+                    carregar. Informe proporções compatíveis com o arquivo
+                    para evitar distorções.
+                </p>
+
+                <!-- Atividade prática -->
+                <aside class="practice">
+                    <h3>Pratique · mini página de recomendações</h3>
+
+                    <ol>
+                        <li>
+                            Crie dois links: um para uma página do seu site
+                            e outro para uma fonte externa confiável.
+                        </li>
+
+                        <li>
+                            Escolha uma imagem disponível no seu projeto
+                            e escreva um <code>alt</code> que transmita
+                            seu propósito.
+                        </li>
+
+                        <li>
+                            Peça a alguém para ler apenas o texto dos links
+                            e a descrição da imagem. A pessoa entende
+                            o conteúdo?
+                        </li>
+                    </ol>
+                </aside>
+
+                <!-- Erros comuns -->
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>
+                            Esquecer <code>href</code>: sem destino,
+                            o link não leva a lugar algum.
+                        </li>
+
+                        <li>
+                            Usar “imagem” como texto alternativo.
+                            Descreva a informação útil; não repita
+                            o que a pessoa já sabe.
+                        </li>
+
+                        <li>
+                            Escrever “clique aqui” sem contexto ou
+                            deixar o <code>alt</code> ausente.
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Revisão da seção -->
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <ul>
+                        <li>
+                            Consigo diferenciar o texto do link
+                            de seu destino?
+                        </li>
+
+                        <li>
+                            As imagens informativas têm uma
+                            alternativa adequada?
+                        </li>
+
+                        <li>
+                            Links continuam compreensíveis fora
+                            do parágrafo em que aparecem?
+                        </li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
-        <section class="dark" id="boas-praticas">
+        <!-- Seção 04: Listas e estrutura semântica -->
+        <section class="dark" id="organizar">
             <div class="container">
                 <div class="heading">
                     <span class="num">04</span>
 
                     <div>
-                        <span class="label">ACESSIBILIDADE</span>
-                        <h2>Semântica, boas práticas e erros comuns</h2>
+                        <p class="label">DAR SIGNIFICADO</p>
+                        <h2>Listas e estrutura semântica</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    Elementos semânticos comunicam o papel do conteúdo
-                    a navegadores, tecnologias assistivas e pessoas
-                    que leem o código. Use <code>div</code> quando
-                    não houver elemento mais apropriado.
+                    HTML semântico usa elementos que comunicam o papel
+                    de cada parte. Isso ajuda pessoas a navegar,
+                    ferramentas assistivas a interpretar e quem
+                    desenvolve a entender o código. Primeiro pergunte
+                    “que tipo de conteúdo é este?”; depois escolha
+                    o elemento.
                 </p>
 
                 <div class="grid two">
                     <article class="card">
-                        <h3>Acessibilidade</h3>
+                        <h3>Listas</h3>
 
                         <p>
-                            Mantenha hierarquia lógica de títulos;
-                            use <code>alt</code> útil em imagens
-                            informativas e <code>alt=""</code> em
-                            imagens decorativas; associe
-                            <code>label</code> aos campos; use links
-                            para navegar e botões para ações.
+                            <code>&lt;ul&gt;</code> agrupa itens cuja ordem
+                            não importa; <code>&lt;ol&gt;</code> indica
+                            sequência ou classificação; cada item fica
+                            em <code>&lt;li&gt;</code>. Não use listas
+                            apenas para obter recuo ou marcadores:
+                            o grupo precisa fazer sentido como lista.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Evite estes erros</h3>
+                        <h3>Partes da página</h3>
 
                         <p>
-                            Não repita <code>id</code>; não use
-                            <code>br</code> para espaçamento visual;
-                            não esqueça o texto alternativo; não use
-                            tabelas para layout; não pule níveis
-                            de título sem motivo nem transforme
-                            uma <code>div</code> em botão sem teclado
-                            e semântica adequados.
+                            <code>&lt;header&gt;</code> é uma introdução
+                            ou cabeçalho; <code>&lt;nav&gt;</code> reúne
+                            navegação; <code>&lt;main&gt;</code> contém
+                            o assunto principal; <code>&lt;section&gt;</code>
+                            agrupa um tema; <code>&lt;article&gt;</code>
+                            é conteúdo que faz sentido por si;
+                            <code>&lt;aside&gt;</code> é complementar;
+                            <code>&lt;footer&gt;</code> traz informações
+                            finais.
                         </p>
                     </article>
-
                 </div>
 
+                <!-- Exemplo de estrutura semântica -->
                 <div class="code">
-                    <div class="code-title">
-                        Exemplo semântico
-                    </div>
+                    <p class="code-title">
+                        Exemplo comentado: página com significado
+                    </p>
 
                     <pre><code>&lt;header&gt;
-    &lt;h1&gt;Clube de leitura&lt;/h1&gt;
+    &lt;h1&gt;Caderno de trilhas&lt;/h1&gt;
+
+    &lt;nav aria-label="Navegação principal"&gt;
+        &lt;a href="#trilha-do-dia"&gt;Trilha do dia&lt;/a&gt;
+        &lt;a href="#preparacao"&gt;Preparação&lt;/a&gt;
+    &lt;/nav&gt;
 &lt;/header&gt;
 
-&lt;nav aria-label="Principal"&gt;
-    &lt;a href="#livros"&gt;Livros&lt;/a&gt;
-&lt;/nav&gt;
-
 &lt;main&gt;
-    &lt;section id="livros"&gt;
-        &lt;h2&gt;Livro em destaque&lt;/h2&gt;
+    &lt;section id="trilha-do-dia"&gt;
+        &lt;h2&gt;Trilha do dia&lt;/h2&gt;
 
         &lt;article&gt;
-            &lt;h3&gt;O pequeno príncipe&lt;/h3&gt;
-            &lt;p&gt;Uma leitura para refletir sobre relações.&lt;/p&gt;
+            &lt;h3&gt;Caminho da cachoeira&lt;/h3&gt;
+            &lt;p&gt;Percurso curto com trechos sombreados.&lt;/p&gt;
         &lt;/article&gt;
+    &lt;/section&gt;
+
+    &lt;section id="preparacao"&gt;
+        &lt;h2&gt;O que levar&lt;/h2&gt;
+
+        &lt;ul&gt;
+            &lt;li&gt;Água&lt;/li&gt;
+            &lt;li&gt;Protetor solar&lt;/li&gt;
+        &lt;/ul&gt;
     &lt;/section&gt;
 &lt;/main&gt;
 
 &lt;footer&gt;
-    &lt;p&gt;Conteúdo educativo.&lt;/p&gt;
+    &lt;p&gt;Atualizado em 2026.&lt;/p&gt;
 &lt;/footer&gt;</code></pre>
                 </div>
+
+                <!-- Observação sobre div -->
+                <p class="note">
+                    <code>div</code> é um contêiner genérico, sem significado
+                    especial. Use quando nenhum elemento semântico servir.
+                    Evite escolher elementos apenas pela forma como
+                    o navegador os apresenta por padrão.
+                </p>
+
+                <!-- Atividade prática -->
+                <aside class="practice">
+                    <h3>Pratique · organize uma página</h3>
+
+                    <ol>
+                        <li>
+                            Esboce no papel cabeçalho, navegação,
+                            conteúdo principal e rodapé.
+                        </li>
+
+                        <li>
+                            Converta o esboço em elementos semânticos,
+                            com um <code>&lt;main&gt;</code> e títulos
+                            coerentes.
+                        </li>
+
+                        <li>
+                            Faça uma lista de passos ou materiais com
+                            <code>&lt;ol&gt;</code> ou <code>&lt;ul&gt;</code>,
+                            conforme o sentido.
+                        </li>
+                    </ol>
+                </aside>
+
+                <!-- Erros comuns -->
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>
+                            Usar <code>&lt;section&gt;</code> como sinônimo
+                            de qualquer caixa visual. Em geral, uma seção
+                            deve ter um tema e título.
+                        </li>
+
+                        <li>
+                            Colocar mais de um conteúdo principal
+                            independente em <code>&lt;main&gt;</code>.
+                        </li>
+
+                        <li>
+                            Usar uma tabela para posicionar elementos.
+                            Tabelas são para dados organizados em linhas
+                            e colunas.
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Revisão da seção -->
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Se eu remover o CSS, a ordem e o propósito
+                        do conteúdo continuam claros? Cada parte usa
+                        o elemento que descreve melhor sua função?
+                    </p>
+                </aside>
             </div>
         </section>
 
-        <section id="resumo">
+        <!-- Seção 05: Formulários acessíveis -->
+        <section id="formularios">
             <div class="container">
-                <div class="summary">
+                <div class="heading">
+                    <span class="num">05</span>
+
                     <div>
-                        <span class="label">SÍNTESE FINAL</span>
-
-                        <h2>O que levar deste guia</h2>
-
-                        <p>
-                            HTML descreve a estrutura e o significado
-                            do conteúdo. Elementos semânticos, títulos
-                            bem organizados e alternativas acessíveis
-                            tornam os documentos mais claros e fáceis
-                            de manter.
-                        </p>
-                    </div>
-
-                    <div class="summary-list">
-                        <div>
-                            <strong>Entenda o propósito</strong>
-                            <small>
-                                Saiba qual problema a tecnologia resolve.
-                            </small>
-                        </div>
-
-                        <div>
-                            <strong>Pratique em etapas</strong>
-                            <small>
-                                Teste exemplos e observe o resultado.
-                            </small>
-                        </div>
-
-                        <div>
-                            <strong>Priorize clareza</strong>
-                            <small>
-                                Código legível é mais fácil de manter.
-                            </small>
-                        </div>
+                        <p class="label">RECEBER INFORMAÇÕES</p>
+                        <h2>Formulários acessíveis</h2>
                     </div>
                 </div>
+
+                <p class="introduction">
+                    Formulários permitem que uma pessoa envie dados
+                    ou escolha opções. Cada controle precisa de uma
+                    instrução visível e associada. Um campo com
+                    <code>placeholder</code> sozinho não tem um rótulo
+                    adequado: a dica desaparece quando a pessoa
+                    começa a digitar.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Rótulo, identificador e nome</h3>
+
+                        <p>
+                            <code>&lt;label&gt;</code> explica o campo.
+                            Seu <code>for</code> deve corresponder ao
+                            <code>id</code> único do controle. O atributo
+                            <code>name</code> identifica o dado quando
+                            um formulário real é enviado. <code>type</code>
+                            escolhe o controle, por exemplo
+                            <code>email</code> ou <code>text</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Validação básica</h3>
+
+                        <p>
+                            <code>required</code> marca um campo obrigatório;
+                            <code>autocomplete</code> pode ajudar o navegador
+                            a preencher dados conhecidos. Validação no
+                            navegador melhora a experiência, mas um site
+                            que recebe dados também precisa validá-los
+                            no servidor.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de formulário -->
+                <div class="code">
+                    <p class="code-title">
+                        Exemplo comentado: campos relacionados
+                    </p>
+
+                    <pre><code>&lt;form action="/contato" method="post"&gt;
+    &lt;!-- for e id associam o rótulo ao campo --&gt;
+    &lt;label for="nome"&gt;Seu nome&lt;/label&gt;
+    &lt;input
+        id="nome"
+        name="nome"
+        type="text"
+        autocomplete="name"
+        required
+    &gt;
+
+    &lt;label for="email"&gt;E-mail&lt;/label&gt;
+    &lt;input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+    &gt;
+
+    &lt;label for="mensagem"&gt;Mensagem&lt;/label&gt;
+    &lt;textarea id="mensagem" name="mensagem" rows="4"&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;Enviar mensagem&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+
+                <!-- Observação sobre envio -->
+                <p class="note">
+                    Este exemplo mostra a estrutura HTML. O envio depende
+                    de um endereço de servidor que receba e processe
+                    os dados; sem esse serviço, o formulário não envia
+                    uma mensagem de verdade.
+                </p>
+
+                <!-- Atividade prática -->
+                <aside class="practice">
+                    <h3>Pratique · formulário de inscrição</h3>
+
+                    <ol>
+                        <li>
+                            Adicione campos para nome, e-mail e
+                            uma mensagem.
+                        </li>
+
+                        <li>
+                            Para cada controle, confira se
+                            <code>for</code> e <code>id</code> coincidem
+                            e se o <code>name</code> está definido.
+                        </li>
+
+                        <li>
+                            Navegue usando a tecla Tab e confira se
+                            o foco passa por rótulos, campos e botão
+                            em ordem lógica.
+                        </li>
+                    </ol>
+                </aside>
+
+                <!-- Erros comuns -->
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>
+                            Usar texto de exemplo como único rótulo
+                            do campo.
+                        </li>
+
+                        <li>
+                            Repetir valores de <code>id</code> ou
+                            esquecer o <code>name</code>.
+                        </li>
+
+                        <li>
+                            Usar <code>&lt;button&gt;</code> sem definir
+                            o tipo em contextos com formulário.
+                            <code>type="submit"</code> envia;
+                            <code>type="button"</code> não envia
+                            por padrão.
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Revisão da seção -->
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Um leitor de tela consegue identificar
+                        o propósito de cada campo? O foco do teclado
+                        chega a todos os controles? Está claro
+                        o que acontece ao enviar?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Seção 06: Projeto final -->
+        <section class="dark" id="projeto">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">06</span>
+
+                    <div>
+                        <p class="label">JUNTAR AS PEÇAS</p>
+                        <h2>Projeto final: uma página sobre você</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Agora use os conceitos para criar uma página pequena,
+                    mas completa. Faça primeiro o conteúdo funcionar
+                    sem CSS. O objetivo é praticar estrutura, não decorar
+                    todas as tags de uma vez.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Requisitos</h3>
+
+                        <ul>
+                            <li>
+                                Estrutura completa com idioma, título
+                                e metadados.
+                            </li>
+
+                            <li>
+                                Um cabeçalho, navegação, conteúdo
+                                principal e rodapé.
+                            </li>
+
+                            <li>
+                                Um título principal e seções com títulos
+                                em ordem.
+                            </li>
+
+                            <li>
+                                Uma lista, pelo menos um link e uma imagem
+                                com alternativa.
+                            </li>
+
+                            <li>
+                                Um formulário de contato com rótulos
+                                associados.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Checklist de revisão</h3>
+
+                        <ul>
+                            <li>Abri e atualizei o arquivo no navegador?</li>
+
+                            <li>
+                                Os elementos estão fechados e aninhados
+                                corretamente?
+                            </li>
+
+                            <li>
+                                Os links têm destinos e nomes que
+                                fazem sentido?
+                            </li>
+
+                            <li>
+                                Consigo navegar com Tab e entender
+                                os campos?
+                            </li>
+
+                            <li>
+                                O idioma está correto e a hierarquia
+                                faz sentido sem estilos?
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Conclusão do guia -->
+                <aside class="checkpoint final-check">
+                    <h3>O que você já sabe fazer</h3>
+
+                    <p>
+                        Você aprendeu a montar um documento HTML,
+                        organizar texto, conectar páginas, descrever
+                        imagens, estruturar conteúdo semanticamente
+                        e criar campos de formulário mais acessíveis.
+                        Continue praticando com páginas pequenas;
+                        consulte uma referência quando surgir
+                        uma dúvida específica.
+                    </p>
+                </aside>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container foot">
             <span>GUIA DE HTML</span>
 
             <p>
-                Material educativo para estudo de Desenvolvimento Web
+                Material educativo para estudar Desenvolvimento Web.
             </p>
+
+            <a href="#conteudo">Voltar ao início ↑</a>
         </div>
     </footer>
 </body>
