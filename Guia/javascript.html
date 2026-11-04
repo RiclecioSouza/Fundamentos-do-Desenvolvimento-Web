@@ -1,621 +1,813 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta
-            name="description"
-            content="Aprenda os fundamentos da linguagem, funções, arrays, DOM, eventos, armazenamento local, módulos e operações assíncronas."
-        >
-        <title>Guia de JavaScript | Guia Front-end</title>
-        <link rel="stylesheet" href="estilo/guia.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+        name="description"
+        content="Aprenda JavaScript do zero com uma trilha progressiva, exemplos comentados, exercícios e revisões práticas."
+    >
+    <title>JavaScript do zero | Guia Front-end</title>
+    <link rel="stylesheet" href="estilo/guia.css">
+</head>
 
-    <body>
-        <header class="hero">
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">
+                <span aria-hidden="true">●</span>
+                GUIA EDUCATIVO · FRONT-END
+            </p>
+
+            <h1>JavaScript <span>do zero</span></h1>
+
+            <p class="hero-lead">
+                Aprenda a programar no navegador em etapas: comece com valores e decisões,
+                pratique funções e listas e só então conecte seu código à página.
+            </p>
+
+            <ul class="tags" aria-label="Temas do guia">
+                <li>Lógica</li>
+                <li>Funções</li>
+                <li>DOM</li>
+                <li>Eventos</li>
+            </ul>
+
+            <nav class="toc" aria-label="Neste guia">
+                <a href="#comecar">Começar</a>
+                <a href="#valores">Valores e variáveis</a>
+                <a href="#decisoes">Decisões e repetições</a>
+                <a href="#funcoes">Funções</a>
+                <a href="#colecoes">Listas e objetos</a>
+                <a href="#pagina">Interagir com a página</a>
+                <a href="#asincrono">Assíncrono</a>
+                <a href="#projeto">Projeto final</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <!-- 01 - Introdução ao JavaScript -->
+        <section id="comecar">
             <div class="container">
-                <div class="point-one">
-                    ● GUIA EDUCATIVO · FRONT-END
+                <div class="heading">
+                    <span class="num">01</span>
+
+                    <div>
+                        <p class="label">PRIMEIROS PASSOS</p>
+                        <h2>O que é JavaScript?</h2>
+                    </div>
                 </div>
 
-                <h1>
-                    Guia de <span>JavaScript</span>
-                </h1>
-
-                <p>
-                    Aprenda os fundamentos da linguagem, funções, arrays,
-                    DOM, eventos, armazenamento local, módulos e operações
-                    assíncronas.
+                <p class="introduction">
+                    JavaScript é uma linguagem de programação. Um programa é uma sequência
+                    de instruções que trabalha com dados para produzir um resultado.
+                    No navegador, JavaScript pode responder a cliques, calcular valores
+                    e atualizar o conteúdo da página. HTML descreve a estrutura; CSS cuida
+                    da apresentação; JavaScript acrescenta comportamento.
                 </p>
 
-                <div class="tags">
-                    <span>Lógica</span>
-                    <span>DOM</span>
-                    <span>Arrays</span>
-                    <span>APIs</span>
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Onde o código é executado?</h3>
+
+                        <p>
+                            O navegador inclui um motor JavaScript. Ele pode executar
+                            um arquivo ligado à página ou instruções digitadas no console
+                            das ferramentas do desenvolvedor. JavaScript também roda fora
+                            do navegador, por exemplo com Node.js; este guia começa pelo navegador.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Primeiro arquivo</h3>
+
+                        <p>
+                            Crie <code>index.html</code> e <code>script.js</code> na mesma pasta.
+                            O atributo <code>defer</code> faz o navegador executar o arquivo
+                            depois de analisar o HTML, ajudando a encontrar os elementos da página.
+                        </p>
+                    </article>
                 </div>
 
+                <!-- Estrutura inicial do HTML -->
+                <div class="code">
+                    <p class="code-title">index.html</p>
+
+                    <pre><code>&lt;!doctype html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Meu primeiro programa&lt;/title&gt;
+    &lt;script src="script.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Meu primeiro programa&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <!-- Primeiro código JavaScript -->
+                <div class="code">
+                    <p class="code-title">
+                        script.js · abra o console do navegador para ver o resultado
+                    </p>
+
+                    <pre><code>// console.log mostra um valor no console para ajudar a observar o programa.
+console.log("Olá, JavaScript!");</code></pre>
+                </div>
+
+                <aside class="note">
+                    <strong>Comentário:</strong> em JavaScript, <code>//</code> inicia
+                    um comentário de uma linha. Para várias linhas, use
+                    <code>/* texto */</code>. Comentários explicam uma decisão ou intenção;
+                    não precisam repetir o que o código já deixa óbvio.
+                </aside>
+
+                <aside class="practice">
+                    <h3>Pratique · confirme que está funcionando</h3>
+
+                    <ol>
+                        <li>Crie os dois arquivos na mesma pasta e copie os exemplos.</li>
+                        <li>Abra <code>index.html</code> no navegador e abra as ferramentas de desenvolvedor (geralmente F12).</li>
+                        <li>Na aba Console, encontre “Olá, JavaScript!”. Troque a mensagem, salve e atualize a página.</li>
+                    </ol>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Confira antes de seguir</h3>
+
+                    <ul>
+                        <li>O arquivo <code>script.js</code> está ligado ao HTML por <code>src</code>?</li>
+                        <li>Sei onde procurar mensagens e erros do programa?</li>
+                    </ul>
+                </aside>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <section id="introducao">
-                <div class="container">
-                    <div class="heading">
-                        <span class="num">01</span>
+        <!-- 02 - Variáveis, valores e operadores -->
+        <section class="dark" id="valores">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">02</span>
 
-                        <div>
-                            <span class="label">CONCEITO</span>
-                            <h2>Introdução ao JavaScript</h2>
-                        </div>
-                    </div>
-
-                    <p class="introduction">
-                        JavaScript é uma linguagem de programação usada
-                        para criar comportamento dinâmico em páginas e
-                        aplicações web. No navegador, responde a eventos,
-                        atualiza o DOM, valida formulários e consome APIs;
-                        também pode rodar no servidor com ambientes como
-                        Node.js.
-                    </p>
-
-                    <div class="grid two">
-                        <article class="card">
-                            <h3>HTML, CSS e JavaScript</h3>
-
-                            <p>
-                                HTML estrutura o conteúdo, CSS define
-                                a apresentação e JavaScript implementa
-                                lógica e interação.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Adicionar scripts</h3>
-
-                            <p>
-                                O JavaScript pode estar em
-                                <code>&lt;script&gt;</code> interno ou
-                                arquivo externo. Para módulos, use
-                                <code>&lt;script type="module" src="script.js"&gt;</code>.
-                                O atributo <code>defer</code> é útil
-                                para scripts externos clássicos.
-                            </p>
-                        </article>
-                    </div>
-
-                    <div class="code">
-                        <div class="code-title">HTML</div>
-
-                        <pre><code>&lt;button id="saudar"&gt;Saudar&lt;/button&gt;
-&lt;p id="mensagem"&gt;Clique no botão.&lt;/p&gt;
-&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
-                    </div>
-
-                    <!-- Exemplo JavaScript -->
-                    <div class="code">
-                        <div class="code-title">script.js</div>
-
-                        <pre><code>const botao = document.querySelector("#saudar");
-const mensagem = document.querySelector("#mensagem");
-
-botao.addEventListener("click", () =&gt; {
-    mensagem.textContent = "Olá! O JavaScript respondeu.";
-});</code></pre>
+                    <div>
+                        <p class="label">GUARDAR INFORMAÇÕES</p>
+                        <h2>Variáveis, valores e operadores</h2>
                     </div>
                 </div>
-            </section>
 
-            <section class="dark" id="fundamentos">
-                <div class="container">
-                    <div class="heading">
-                        <span class="num">02</span>
+                <p class="introduction">
+                    Uma variável dá um nome a um valor para que o programa possa usá-lo.
+                    Use <code>const</code> quando não pretende atribuir outro valor à variável;
+                    use <code>let</code> quando precisar reatribuí-lo. Em código novo,
+                    normalmente não é necessário usar <code>var</code>, que tem regras
+                    de escopo diferentes.
+                </p>
 
-                        <div>
-                            <span class="label">FUNDAMENTOS</span>
-                            <h2>Variáveis, tipos e operadores</h2>
-                        </div>
-                    </div>
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Tipos que você usará primeiro</h3>
 
-                    <p class="introduction">
-                        Use <code>const</code> quando a variável não será
-                        reatribuída e <code>let</code> quando seu valor
-                        precisar mudar. <code>var</code> é legado e tem
-                        regras de escopo diferentes.
+                        <p>
+                            <code>string</code> é texto, entre aspas; <code>number</code>
+                            é número; <code>boolean</code> é <code>true</code> ou
+                            <code>false</code>. <code>undefined</code> costuma indicar
+                            que ainda não há valor atribuído; <code>null</code> representa
+                            ausência intencional. Arrays e objetos agrupam valores.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Operações e comparações</h3>
+
+                        <p>
+                            <code>+</code> soma números ou junta textos; <code>-</code>,
+                            <code>*</code> e <code>/</code> fazem operações matemáticas.
+                            Use <code>===</code> para comparar igualdade sem conversão
+                            automática de tipos. <code>=</code> atribui um valor; não é
+                            teste de igualdade.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de variáveis e operadores -->
+                <div class="code">
+                    <p class="code-title">Exemplo comentado</p>
+
+                    <pre><code>const nome = "Lia";        // texto (string)
+let pontos = 10;            // número (number)
+const inscrita = true;      // verdadeiro/falso (boolean)
+
+pontos = pontos + 5;        // let pode receber outro valor
+const mensagem = nome + " fez " + pontos + " pontos.";
+
+console.log(mensagem);      // Lia fez 15 pontos.
+console.log(5 === "5");     // false: tipos diferentes
+console.log(5 == "5");      // true: conversão implícita; evite ==</code></pre>
+                </div>
+
+                <aside class="practice">
+                    <h3>Pratique · recibo simples</h3>
+
+                    <ol>
+                        <li>Crie variáveis para o nome de um produto, seu preço e a quantidade comprada.</li>
+                        <li>Calcule o total e mostre uma frase com <code>console.log</code>.</li>
+                        <li>Compare dois valores com <code>===</code> e observe o tipo de cada um com <code>typeof</code>.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Esquecer aspas em texto ou usar aspas ao redor de números que serão calculados.</li>
+                        <li>Tentar reatribuir uma variável declarada com <code>const</code>. O identificador é constante; um objeto guardado nele ainda pode ter propriedades alteradas.</li>
+                        <li>Confundir <code>=</code> (atribuir) com <code>===</code> (comparar).</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Consigo dizer quais valores são texto, número ou booleano?
+                        Sei por que escolhi <code>const</code> ou <code>let</code>?
                     </p>
+                </aside>
+            </div>
+        </section>
 
-                    <div class="grid two">
-                        <article class="card">
-                            <h3>Tipos de dados</h3>
+        <!-- 03 - Condições e repetições -->
+        <section id="decisoes">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">03</span>
 
-                            <p>
-                                Tipos primitivos: <code>string</code>,
-                                <code>number</code>, <code>boolean</code>,
-                                <code>undefined</code>, <code>null</code>,
-                                <code>bigint</code> e <code>symbol</code>.
-                                Arrays e objetos agrupam dados.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Operadores e conversão</h3>
-
-                            <p>
-                                Aritméticos: <code>+</code>, <code>-</code>,
-                                <code>*</code>, <code>/</code>, <code>%</code>.
-                                Comparação: <code>&gt;</code>, <code>&lt;</code>,
-                                <code>===</code>. Lógicos:
-                                <code>&amp;&amp;</code>, <code>||</code>,
-                                <code>!</code>. Atribuição:
-                                <code>=</code>, <code>+=</code>.
-                                Prefira <code>===</code> a <code>==</code>
-                                para evitar coerções implícitas.
-                            </p>
-                        </article>
-                    </div>
-
-                    <!-- Exemplo de variáveis -->
-                    <div class="code">
-                        <div class="code-title">Variáveis</div>
-
-                        <pre><code>const nome = "Lia";       // string
-let pontos = 10;          // number
-const ativo = true;       // boolean
-let resposta;             // undefined
-const ausente = null;     // ausência intencional
-const precos = [12, 25];  // array
-const usuario = { nome, ativo };
-
-pontos += 5;
-
-const idade = Number("20");</code></pre>
+                    <div>
+                        <p class="label">CONTROLAR O CAMINHO</p>
+                        <h2>Condições e repetições</h2>
                     </div>
                 </div>
-            </section>
 
-            <section id="exemplos">
-                <div class="container">
-                    <div class="heading">
-                        <span class="num">03</span>
+                <p class="introduction">
+                    Programas ficam úteis quando podem escolher o que fazer com base nos dados.
+                    Uma condição é uma expressão que resulta em verdadeiro ou falso. Um laço
+                    repete instruções; cuide para que a condição de parada seja alcançada.
+                </p>
 
-                        <div>
-                            <span class="label">CONTROLE DE FLUXO</span>
-                            <h2>Condicionais, laços e funções</h2>
-                        </div>
-                    </div>
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Escolher com if e else</h3>
 
-                    <p class="introduction">
-                        Condicionais escolhem caminhos; laços repetem
-                        tarefas; funções agrupam lógica reutilizável
-                        e podem receber parâmetros e devolver resultados
-                        com <code>return</code>.
-                    </p>
+                        <p>
+                            <code>if</code> executa um bloco quando a condição é verdadeira.
+                            <code>else if</code> permite testar outra condição;
+                            <code>else</code> cobre os casos restantes. Use chaves para
+                            delimitar os blocos e facilitar a leitura.
+                        </p>
+                    </article>
 
-                    <div class="grid">
-                        <article class="card">
-                            <h3>Condicionais</h3>
+                    <article class="card">
+                        <h3>Repetir com for</h3>
 
-                            <p>
-                                <code>if</code>, <code>else if</code>
-                                e <code>else</code> avaliam condições;
-                                <code>switch</code> compara casos;
-                                o ternário <code>condição ? A : B</code>
-                                serve para escolhas simples.
-                            </p>
-                        </article>
+                        <p>
+                            <code>for</code> é útil quando você sabe quantas repetições
+                            quer fazer. <code>while</code> repete enquanto a condição
+                            for verdadeira. Se a condição nunca mudar para falso,
+                            o programa pode ficar preso num laço infinito.
+                        </p>
+                    </article>
+                </div>
 
-                        <article class="card">
-                            <h3>Laços</h3>
+                <!-- Exemplo de condições e laços -->
+                <div class="code">
+                    <p class="code-title">Exemplo comentado</p>
 
-                            <p>
-                                <code>for</code> controla repetições;
-                                <code>while</code> repete enquanto a
-                                condição é verdadeira;
-                                <code>do...while</code> executa ao menos
-                                uma vez. <code>for...of</code> percorre
-                                valores iteráveis; <code>for...in</code>
-                                percorre chaves enumeráveis.
-                                <code>break</code> encerra e
-                                <code>continue</code> pula uma iteração.
-                            </p>
-                        </article>
+                    <pre><code>const nota = 6.5;
 
-                        <article class="card">
-                            <h3>Funções e escopo</h3>
-
-                            <p>
-                                Use declaração de função, expressão
-                                ou arrow function. Parâmetros são nomes
-                                declarados; argumentos são valores
-                                passados. Escopos global, de função
-                                e de bloco determinam acesso às variáveis.
-                                Callbacks são funções passadas a outras;
-                                closures mantêm acesso ao escopo de criação.
-                            </p>
-                        </article>
-                    </div>
-
-                    <!-- Exemplo de funções -->
-                    <div class="code">
-                        <div class="code-title">Exemplo</div>
-
-                        <pre><code>function classificarNota(nota) {
-    if (nota &gt;= 7) return "Aprovado";
-    if (nota &gt;= 5) return "Recuperação";
-
-    return "Reprovado";
+if (nota &gt;= 7) {
+    console.log("Aprovado");
+} else if (nota &gt;= 5) {
+    console.log("Recuperação");
+} else {
+    console.log("Reprovado");
 }
 
-const dobrar = numero =&gt; numero * 2;
-
-for (const numero of [1, 2, 3]) {
-    console.log(dobrar(numero));
+// Começa em 1, soma 1 a cada volta e para depois do 3.
+for (let numero = 1; numero &lt;= 3; numero += 1) {
+    console.log("Tentativa " + numero);
 }</code></pre>
+                </div>
+
+                <aside class="practice">
+                    <h3>Pratique · classificar números</h3>
+
+                    <ol>
+                        <li>Crie uma variável com um número.</li>
+                        <li>Use <code>if</code> para informar se é positivo, negativo ou zero.</li>
+                        <li>Use um laço para imprimir os números de 1 até 5; depois adapte para começar e terminar em outros valores.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Escrever <code>if (nota = 7)</code>: isso atribui um valor. Para comparar, use <code>===</code> ou operadores como <code>&gt;=</code>.</li>
+                        <li>Esquecer de atualizar a variável de controle do laço.</li>
+                        <li>Adicionar complexidade com operador ternário quando um <code>if</code> simples fica mais fácil de entender.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Para cada condição, consigo prever qual bloco será executado?
+                        Sei explicar quando meu laço termina?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 04 - Funções e resultados -->
+        <section class="dark" id="funcoes">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">04</span>
+
+                    <div>
+                        <p class="label">REUTILIZAR LÓGICA</p>
+                        <h2>Funções e resultados</h2>
                     </div>
                 </div>
-            </section>
 
-            <section class="dark" id="colecoes">
-                <div class="container">
-                    <div class="heading">
-                        <span class="num">04</span>
+                <p class="introduction">
+                    Uma função reúne instruções que podem ser executadas quando necessário.
+                    Ela pode receber entradas (parâmetros) e devolver um resultado com
+                    <code>return</code>. Dar nome às etapas ajuda a dividir um problema
+                    em partes menores e deixa a intenção do código mais clara.
+                </p>
 
-                        <div>
-                            <span class="label">COLEÇÕES</span>
-                            <h2>Arrays e objetos</h2>
-                        </div>
-                    </div>
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Definir não é executar</h3>
 
-                    <p class="introduction">
-                        Arrays guardam listas ordenadas; objetos agrupam
-                        propriedades. Alguns métodos alteram o array
-                        original, enquanto outros retornam novos resultados.
+                        <p>
+                            Declarar uma função guarda suas instruções. Ela só roda quando
+                            é chamada pelo nome seguido de parênteses. Os nomes listados
+                            na definição são parâmetros; os valores enviados na chamada
+                            são argumentos.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Arrow functions</h3>
+
+                        <p>
+                            Uma função também pode ser escrita com <code>=&gt;</code>.
+                            Para uma expressão curta, o resultado pode ser retornado
+                            implicitamente. Quando há mais de uma instrução, use chaves
+                            e escreva <code>return</code>.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de funções -->
+                <div class="code">
+                    <p class="code-title">Exemplo comentado</p>
+
+                    <pre><code>// preco e quantidade são parâmetros.
+function calcularTotal(preco, quantidade) {
+    const total = preco * quantidade;
+    return total; // envia o resultado de volta a quem chamou
+}
+
+const totalCompra = calcularTotal(12, 3); // argumentos: 12 e 3
+console.log(totalCompra); // 36
+
+const dobrar = numero =&gt; numero * 2;
+console.log(dobrar(4)); // 8</code></pre>
+                </div>
+
+                <aside class="practice">
+                    <h3>Pratique · conversor de temperatura</h3>
+
+                    <ol>
+                        <li>Escreva uma função que receba uma temperatura em Celsius.</li>
+                        <li>Calcule Fahrenheit usando a fórmula <code>C × 9 / 5 + 32</code> e retorne o resultado.</li>
+                        <li>Chame a função com alguns valores e mostre os resultados.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Esquecer de chamar a função depois de defini-la.</li>
+                        <li>Esperar um valor de uma função que não tem <code>return</code>.</li>
+                        <li>Usar nomes genéricos como <code>x</code> e <code>f</code> quando nomes mais claros explicariam a tarefa.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Minha função recebe o que precisa? Ela devolve o resultado esperado?
+                        Consigo testá-la com mais de uma entrada?
                     </p>
+                </aside>
+            </div>
+        </section>
 
-                    <div class="grid two">
-                        <article class="card">
-                            <h3>Métodos que modificam</h3>
+        <!-- 05 - Arrays e objetos -->
+        <section id="colecoes">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">05</span>
 
-                            <p>
-                                <code>push()</code> adiciona ao fim;
-                                <code>pop()</code> remove do fim;
-                                <code>shift()</code> remove do início;
-                                <code>unshift()</code> adiciona no início;
-                                <code>splice()</code> remove, substitui
-                                ou insere no array original.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Métodos que retornam valores</h3>
-
-                            <p>
-                                <code>map()</code> transforma itens;
-                                <code>filter()</code> seleciona;
-                                <code>find()</code> retorna o primeiro
-                                correspondente;
-                                <code>findIndex()</code> retorna índice;
-                                <code>reduce()</code> acumula;
-                                <code>some()</code> verifica se algum
-                                atende; <code>every()</code> verifica
-                                se todos atendem.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Consultar e percorrer</h3>
-
-                            <p>
-                                <code>forEach()</code> executa uma função
-                                por item; <code>includes()</code> verifica
-                                presença; <code>slice()</code> retorna
-                                parte sem alterar o original.
-                                Desestruturação extrai valores;
-                                spread (<code>...</code>) copia ou combina;
-                                optional chaining (<code>?.</code>) evita
-                                erro ao acessar propriedade de valor nulo
-                                ou indefinido.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Strings e números</h3>
-
-                            <p>
-                                <code>trim()</code> remove espaços das
-                                extremidades; <code>split()</code> divide
-                                string; <code>join()</code> une itens;
-                                <code>Number()</code> converte para número
-                                e <code>toFixed()</code> formata casas
-                                decimais como texto.
-                            </p>
-                        </article>
+                    <div>
+                        <p class="label">AGRUPAR DADOS</p>
+                        <h2>Arrays e objetos</h2>
                     </div>
+                </div>
 
-                    <!-- Exemplo de métodos de array -->
-                    <div class="code">
-                        <div class="code-title">Métodos de array</div>
+                <p class="introduction">
+                    Arrays guardam listas ordenadas de valores; objetos agrupam dados
+                    relacionados sob nomes de propriedades. Juntos, eles ajudam a
+                    representar informação do mundo real. A posição de um array começa
+                    em zero: o primeiro item está no índice <code>0</code>.
+                </p>
 
-                        <pre><code>const tarefas = [
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Transformar e filtrar</h3>
+
+                        <p>
+                            <code>map()</code> cria uma nova lista transformando cada item.
+                            <code>filter()</code> cria uma lista com itens que passam numa
+                            condição. <code>find()</code> devolve o primeiro item que
+                            corresponde. Esses métodos não alteram a lista original.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Propriedades e acesso</h3>
+
+                        <p>
+                            Use ponto para acessar uma propriedade conhecida, como
+                            <code>pessoa.nome</code>. Use colchetes quando o nome estiver
+                            numa variável ou tiver caracteres especiais. <code>push()</code>
+                            acrescenta item ao array original; tenha atenção aos métodos
+                            que modificam a lista.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de arrays e objetos -->
+                <div class="code">
+                    <p class="code-title">Exemplo comentado</p>
+
+                    <pre><code>const tarefas = [
     { titulo: "Estudar", concluida: true },
-    { titulo: "Praticar", concluida: false }
+    { titulo: "Praticar", concluida: false },
+    { titulo: "Revisar", concluida: false }
 ];
 
-const titulos = tarefas.map(t =&gt; t.titulo);
-const pendentes = tarefas.filter(t =&gt; !t.concluida);
-const primeira = tarefas.find(t =&gt; t.concluida);
+const titulos = tarefas.map(tarefa =&gt; tarefa.titulo);
+const pendentes = tarefas.filter(tarefa =&gt; !tarefa.concluida);
+const primeira = tarefas[0];
 
-const numeros = [1, 2, 3, 4];
+console.log(titulos);            // lista de textos
+console.log(pendentes.length);   // quantidade pendente
+console.log(primeira.titulo);    // Estudar</code></pre>
+                </div>
 
-const parte = numeros.slice(1, 3); // [2, 3], original intacto
+                <aside class="practice">
+                    <h3>Pratique · lista de compras</h3>
 
-numeros.splice(1, 1); // altera o original</code></pre>
+                    <ol>
+                        <li>Crie um array com objetos de produtos; cada objeto deve ter nome e preço.</li>
+                        <li>Use <code>map()</code> para obter só os nomes e <code>filter()</code> para selecionar os preços abaixo de um limite.</li>
+                        <li>Calcule o total. Explique em comentário se seu método muda ou preserva a lista original.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Tentar acessar o primeiro elemento com índice 1 em vez de 0.</li>
+                        <li>Esquecer que <code>map()</code> e <code>filter()</code> devolvem uma nova lista: guarde o resultado se quiser usá-lo depois.</li>
+                        <li>Esperar que uma função de callback dentro de <code>map()</code> produza valores sem usar <code>return</code> ou uma expressão retornada.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Sei escolher entre array e objeto? Consigo explicar a diferença
+                        entre transformar uma lista e selecionar alguns itens?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 06 - DOM, eventos e formulários -->
+        <section class="dark" id="pagina">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">06</span>
+
+                    <div>
+                        <p class="label">CONECTAR AO HTML</p>
+                        <h2>DOM, eventos e formulários</h2>
                     </div>
                 </div>
-            </section>
 
+                <p class="introduction">
+                    O navegador representa o HTML como objetos numa estrutura chamada DOM
+                    (<i>Document Object Model</i>). JavaScript pode selecionar esses objetos
+                    e reagir a eventos, como um clique ou o envio de um formulário. Use
+                    controles HTML reais para que teclado e tecnologias assistivas também funcionem.
+                </p>
 
-            <!-- Seção 05: DOM, eventos, armazenamento e APIs -->
-            <section id="navegador">
-                <div class="container">
-                    <div class="heading">
-                        <span class="num">05</span>
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Selecionar e atualizar</h3>
 
-                        <div>
-                            <span class="label">NAVEGADOR</span>
-                            <h2>DOM, eventos, armazenamento e APIs</h2>
-                        </div>
-                    </div>
+                        <p>
+                            <code>document.querySelector()</code> encontra o primeiro
+                            elemento que corresponde a um seletor CSS.
+                            <code>textContent</code> lê ou troca texto com segurança.
+                            <code>classList</code> permite adicionar ou alternar classes
+                            para que o CSS cuide da aparência.
+                        </p>
+                    </article>
 
-                    <p class="introduction">
-                        O DOM representa o HTML como objetos que JavaScript
-                        pode consultar e alterar. Eventos permitem responder
-                        a cliques, teclado, entrada de dados e envio
-                        de formulários.
-                    </p>
+                    <article class="card">
+                        <h3>Responder a eventos</h3>
 
-                    <div class="grid two">
-                        <article class="card">
-                            <h3>DOM e eventos</h3>
+                        <p>
+                            <code>addEventListener()</code> registra uma função para ser
+                            chamada quando um evento ocorre. No envio de formulário,
+                            <code>preventDefault()</code> pode impedir a navegação padrão
+                            para que você apresente uma resposta na página.
+                        </p>
+                    </article>
+                </div>
 
-                            <p>
-                                <code>querySelector()</code> seleciona
-                                o primeiro elemento;
-                                <code>querySelectorAll()</code> retorna
-                                uma lista; <code>getElementById()</code>
-                                busca por ID. <code>textContent</code>
-                                altera texto; <code>innerHTML</code>
-                                interpreta HTML e não deve receber
-                                conteúdo não confiável.
-                                <code>classList</code> oferece
-                                <code>add()</code>, <code>remove()</code>,
-                                <code>toggle()</code> e
-                                <code>contains()</code>.
-                            </p>
-                        </article>
+                <!-- Estrutura HTML do formulário -->
+                <div class="code">
+                    <p class="code-title">index.html · elementos para o exemplo</p>
 
-                        <article class="card">
-                            <h3>Criar e validar</h3>
+                    <pre><code>&lt;form id="formulario"&gt;
+    &lt;label for="nome"&gt;Seu nome&lt;/label&gt;
+    &lt;input id="nome" name="nome" required&gt;
+    &lt;button type="submit"&gt;Saudar&lt;/button&gt;
+&lt;/form&gt;
 
-                            <p>
-                                <code>createElement()</code> cria;
-                                <code>append()</code> insere;
-                                <code>remove()</code> remove.
-                                <code>addEventListener()</code>
-                                registra eventos. O objeto
-                                <code>event</code> fornece detalhes;
-                                <code>preventDefault()</code> impede
-                                a ação padrão; a propagação pode ser
-                                controlada quando necessário.
-                            </p>
-                        </article>
+&lt;p id="saida" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+                </div>
 
-                        <article class="card">
-                            <h3>JSON e localStorage</h3>
+                <!-- Código JavaScript do formulário -->
+                <div class="code">
+                    <p class="code-title">script.js · resposta ao envio</p>
 
-                            <p>
-                                <code>JSON.stringify()</code> converte
-                                valores compatíveis em texto JSON;
-                                <code>JSON.parse()</code> lê esse texto.
-                                <code>localStorage</code> guarda strings
-                                entre sessões; converta objetos com JSON
-                                e não armazene informações sensíveis sem
-                                uma arquitetura apropriada.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Assíncrono e módulos</h3>
-
-                            <p>
-                                Promises representam operações futuras;
-                                <code>async/await</code> facilita código
-                                assíncrono. <code>fetch()</code> faz
-                                requisições HTTP: verifique
-                                <code>response.ok</code>.
-                                <code>import</code>/<code>export</code>
-                                dividem o código. Use
-                                <code>try/catch/finally</code> para erros
-                                e ferramentas do navegador para depuração.
-                            </p>
-                        </article>
-                    </div>
-
-                    <!-- Exemplo de formulário e DOM -->
-                    <div class="code">
-                        <div class="code-title">Formulário e DOM</div>
-
-                        <pre><code>const formulario = document.querySelector("#formulario");
-const campo = document.querySelector("#nome");
+                    <pre><code>const formulario = document.querySelector("#formulario");
+const campoNome = document.querySelector("#nome");
 const saida = document.querySelector("#saida");
 
 formulario.addEventListener("submit", evento =&gt; {
-    evento.preventDefault();
+    evento.preventDefault(); // não recarrega a página neste exemplo
 
-    const nome = campo.value.trim();
+    const nome = campoNome.value.trim();
 
-    if (!nome) {
+    if (nome === "") {
         saida.textContent = "Digite seu nome.";
         return;
     }
 
     saida.textContent = `Olá, ${nome}!`;
 });</code></pre>
+                </div>
+
+                <p class="note">
+                    <strong>Por que <code>textContent</code>?</strong>
+                    Ele insere texto sem interpretá-lo como HTML. Evite colocar dados
+                    digitados por pessoas em <code>innerHTML</code>, que interpreta
+                    marcação e pode abrir brechas de segurança.
+                </p>
+
+                <aside class="practice">
+                    <h3>Pratique · contador de cliques</h3>
+
+                    <ol>
+                        <li>Adicione um botão e um parágrafo com IDs únicos ao HTML.</li>
+                        <li>Selecione os dois elementos no JavaScript e comece uma variável contadora em zero.</li>
+                        <li>Em cada clique, incremente a contagem e atualize o parágrafo com <code>textContent</code>.</li>
+                        <li>Teste o botão com mouse e teclado.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Usar <code>querySelector</code> com um seletor que não existe; o resultado será <code>null</code>.</li>
+                        <li>Tentar alterar a página antes de o elemento existir. O script com <code>defer</code> ajuda quando o arquivo é externo.</li>
+                        <li>Criar uma <code>div</code> clicável em vez de um <code>button</code>, que já oferece teclado e semântica apropriados.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Sei de onde vem cada elemento selecionado? A ação funciona com teclado?
+                        O texto atualizado é compreensível por leitores de tela?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 07 - Promises, fetch e armazenamento -->
+        <section id="asincrono">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">07</span>
+
+                    <div>
+                        <p class="label">ESPERAR OPERAÇÕES</p>
+                        <h2>Promises, fetch e armazenamento</h2>
                     </div>
+                </div>
 
-                    <!-- Exemplo de requisição HTTP -->
-                    <div class="code">
-                        <div class="code-title">Fetch e async/await</div>
+                <p class="introduction">
+                    Algumas tarefas levam tempo: buscar dados numa rede ou ler um arquivo,
+                    por exemplo. O JavaScript pode continuar responsivo enquanto espera.
+                    Uma Promise representa um resultado que chegará depois; <code>async</code>
+                    e <code>await</code> tornam esse fluxo mais fácil de ler.
+                </p>
 
-                        <pre><code>async function carregarDados() {
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Buscar dados com fetch</h3>
+
+                        <p>
+                            <code>fetch()</code> inicia uma requisição de rede e devolve
+                            uma Promise. Uma resposta HTTP de erro ainda pode ser uma
+                            resposta recebida com sucesso; confira <code>response.ok</code>.
+                            Use <code>try/catch</code> para lidar com falhas de rede
+                            ou processamento.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Guardar pequenas preferências</h3>
+
+                        <p>
+                            <code>localStorage</code> guarda texto no navegador entre visitas.
+                            Para salvar objetos, converta com <code>JSON.stringify()</code>;
+                            ao ler, use <code>JSON.parse()</code>. Não use armazenamento local
+                            para senhas ou outros dados sensíveis.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de requisição assíncrona -->
+                <div class="code">
+                    <p class="code-title">Exemplo: buscar e tratar uma resposta</p>
+
+                    <pre><code>async function carregarDados() {
     try {
         const resposta = await fetch("https://api.exemplo.com/dados");
 
         if (!resposta.ok) {
-            throw new Error("Falha na requisição");
+            throw new Error("A resposta do servidor não foi bem-sucedida.");
         }
 
         const dados = await resposta.json();
-
         console.log(dados);
+
     } catch (erro) {
-        console.error("Não foi possível carregar:", erro);
+        console.error("Não foi possível carregar os dados:", erro);
     }
-}</code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <section class="dark" id="boas-praticas">
-                <div class="container">
-                    <div class="heading">
-                        <span class="num">06</span>
-
-                        <div>
-                            <span class="label">QUALIDADE</span>
-                            <h2>Boas práticas e erros comuns</h2>
-                        </div>
-                    </div>
-
-                    <div class="grid two">
-                        <article class="card">
-                            <h3>Boas práticas</h3>
-
-                            <p>
-                                Use nomes claros, funções pequenas,
-                                <code>const</code> por padrão, validação
-                                de entradas, tratamento de falhas
-                                assíncronas e módulos para organizar
-                                projetos. Prefira <code>textContent</code>
-                                para inserir texto simples.
-                            </p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Erros comuns</h3>
-
-                            <p>
-                                Confundir <code>=</code> com comparação;
-                                esperar que <code>map()</code> altere
-                                o array original; usar
-                                <code>innerHTML</code> com dados não
-                                confiáveis; esquecer imports; acessar
-                                elementos antes do HTML existir;
-                                ignorar falhas de rede.
-                            </p>
-                        </article>
-
-                    </div>
-
-                    <!-- Exemplo de integração entre tecnologias -->
-                    <div class="code">
-                        <div class="code-title">HTML + CSS + JavaScript</div>
-
-                        <pre><code>&lt;!-- HTML --&gt;
-&lt;button id="alternar" aria-pressed="false"&gt;Ativar destaque&lt;/button&gt;
-&lt;p id="texto"&gt;Este texto terá destaque.&lt;/p&gt;
-
-/* CSS */
-.destaque {
-    color: #55b7ff;
-    font-weight: 700;
 }
 
-// JavaScript
-const botao = document.querySelector("#alternar");
-const texto = document.querySelector("#texto");
-
-botao.addEventListener("click", () =&gt; {
-    const ativo = texto.classList.toggle("destaque");
-
-    botao.setAttribute("aria-pressed", String(ativo));
-});</code></pre>
-                    </div>
-
-                    <p class="introduction">
-                        HTML fornece os elementos, CSS define a classe
-                        visual e JavaScript alterna a classe em resposta
-                        ao clique.
-                    </p>
+carregarDados();</code></pre>
                 </div>
-            </section>
 
-            <section id="resumo">
-                <div class="container">
-                    <div class="summary">
-                        <div>
-                            <span class="label">SÍNTESE FINAL</span>
-
-                            <h2>O que levar deste guia</h2>
-
-                            <p>
-                                JavaScript conecta dados, lógica e
-                                interface. Comece por variáveis,
-                                condições, funções e arrays; depois
-                                pratique DOM, eventos, módulos e
-                                operações assíncronas em pequenos projetos.
-                            </p>
-                        </div>
-
-                        <div class="summary-list">
-
-                            <div>
-                                <strong>Entenda o propósito</strong>
-
-                                <small>
-                                    Saiba qual problema a tecnologia resolve.
-                                </small>
-                            </div>
-
-                            <div>
-                                <strong>Pratique em etapas</strong>
-
-                                <small>
-                                    Teste exemplos e observe o resultado.
-                                </small>
-                            </div>
-
-                            <div>
-                                <strong>Priorize clareza</strong>
-
-                                <small>
-                                    Código legível é mais fácil de manter.
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container foot">
-                <span>GUIA DE JAVASCRIPT</span>
-
-                <p>
-                    Material educativo para estudo de Desenvolvimento Web
+                <p class="note">
+                    O domínio <code>api.exemplo.com</code> é ilustrativo e não fornece
+                    dados reais. Para testar, será preciso usar uma API disponível
+                    e respeitar suas regras de acesso.
                 </p>
+
+                <aside class="practice">
+                    <h3>Pratique · preferência local</h3>
+
+                    <ol>
+                        <li>Salve o tema escolhido ou o nome de uma lista com <code>localStorage.setItem()</code>.</li>
+                        <li>Ao abrir a página, leia o valor com <code>getItem()</code> e mostre-o se existir.</li>
+                        <li>Limpe esse valor com <code>removeItem()</code> e confirme o que acontece ao atualizar.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Esquecer <code>await</code> e tentar usar uma Promise como se já fosse o dado final.</li>
+                        <li>Não conferir <code>response.ok</code> depois de <code>fetch</code>.</li>
+                        <li>Supor que dados JSON sempre existem ou têm o formato esperado; valide o que seu programa recebe.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Sei separar o tempo de espera da resposta final?
+                        Tenho um caminho compreensível para informar que a operação falhou?
+                    </p>
+                </aside>
             </div>
-        </footer>
-    </body>
+        </section>
+
+        <!-- 08 - Projeto final -->
+        <section class="dark" id="projeto">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">08</span>
+
+                    <div>
+                        <p class="label">JUNTAR AS PEÇAS</p>
+                        <h2>Projeto final: lista de tarefas</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Faça uma lista pequena que permita adicionar uma tarefa e marcá-la
+                    como concluída. Comece com o HTML e o comportamento; depois, se quiser,
+                    salve a lista no navegador com <code>localStorage</code>.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Etapas</h3>
+
+                        <ol>
+                            <li>Crie um formulário com campo rotulado e botão de envio.</li>
+                            <li>Guarde as tarefas em um array de objetos.</li>
+                            <li>Ao enviar, impeça a navegação, valide o texto e adicione uma tarefa.</li>
+                            <li>Escreva uma função que redesenhe a lista no DOM.</li>
+                            <li>Permita marcar como concluída e mostre quantas faltam.</li>
+                        </ol>
+                    </article>
+
+                    <article class="card">
+                        <h3>Checklist de revisão</h3>
+
+                        <ul>
+                            <li>Os nomes das variáveis e funções explicam seu propósito?</li>
+                            <li>Campos e botões podem ser usados com teclado?</li>
+                            <li>O programa lida com campo vazio?</li>
+                            <li>Consigo explicar de onde vêm os dados e como a página muda?</li>
+                            <li>Testei o que ocorre quando ainda não há tarefas?</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Resumo final -->
+                <aside class="checkpoint final-check">
+                    <h3>O que você aprendeu</h3>
+
+                    <p>
+                        Você praticou valores, variáveis, condições, repetições, funções,
+                        listas, objetos, eventos e atualização do DOM. JavaScript fica
+                        mais claro com pequenos experimentos: mude uma entrada, preveja
+                        a saída e confira no console.
+                    </p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container foot">
+            <span>GUIA DE JAVASCRIPT</span>
+
+            <p>Material educativo para estudar Desenvolvimento Web.</p>
+
+            <a href="#conteudo">Voltar ao início ↑</a>
+        </div>
+    </footer>
+</body>
 </html>
