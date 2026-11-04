@@ -1,514 +1,777 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
         name="description"
-        content="Entenda seletores, propriedades, layouts, responsividade, transformações e animações para criar interfaces consistentes."
+        content="Aprenda CSS do zero com uma trilha progressiva, exemplos comentados, exercícios e revisões práticas."
     >
-    <title>Guia de CSS | Guia Front-end</title>
+    <title>CSS do zero | Guia Front-end</title>
+
     <link rel="stylesheet" href="estilo/guia.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
     <header class="hero">
         <div class="container">
-            <div class="point-one">
-                ● GUIA EDUCATIVO · FRONT-END
-            </div>
-
-            <h1>
-                Guia de <span>CSS</span>
-            </h1>
-
-            <p>
-                Entenda seletores, propriedades, layouts, responsividade,
-                transformações e animações para criar interfaces consistentes.
+            <p class="eyebrow">
+                <span aria-hidden="true">●</span>
+                GUIA EDUCATIVO · FRONT-END
             </p>
 
-            <div class="tags">
-                <span>Seletores</span>
-                <span>Layout</span>
-                <span>Responsividade</span>
-                <span>Animações</span>
-            </div>
+            <h1>CSS <span>do zero</span></h1>
 
+            <p class="hero-lead">
+                Aprenda a transformar a estrutura HTML em interfaces legíveis e adaptáveis.
+                Comece aplicando uma regra, entenda como ela é escolhida e avance para
+                layouts e responsividade.
+            </p>
+
+            <ul class="tags" aria-label="Temas do guia">
+                <li>Seletores</li>
+                <li>Cascata</li>
+                <li>Layout</li>
+                <li>Responsividade</li>
+            </ul>
+
+            <nav class="toc" aria-label="Neste guia">
+                <a href="#comecar">Começar</a>
+                <a href="#seletores">Seletores</a>
+                <a href="#cascata">Cascata</a>
+                <a href="#caixa">Modelo de caixa</a>
+                <a href="#layout">Layout</a>
+                <a href="#visual">Tipografia e cores</a>
+                <a href="#responsivo">Responsividade</a>
+                <a href="#projeto">Projeto final</a>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section id="introducao">
+    <main id="conteudo">
+        <!-- 01 - Introdução ao CSS -->
+        <section id="comecar">
             <div class="container">
                 <div class="heading">
                     <span class="num">01</span>
 
                     <div>
-                        <span class="label">CONCEITO</span>
-                        <h2>Introdução ao CSS</h2>
+                        <p class="label">PRIMEIROS PASSOS</p>
+                        <h2>O que é CSS?</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    CSS (Cascading Style Sheets) controla a apresentação
-                    de documentos HTML: cores, fontes, espaçamentos,
-                    dimensões, posicionamento, layouts, transições e
-                    adaptação a telas diferentes.
+                    CSS significa <i>Cascading Style Sheets</i> (Folhas de Estilo em Cascata).
+                    Ele descreve como elementos HTML devem ser apresentados: cores, fontes,
+                    espaçamentos e layouts. HTML dá estrutura e significado; CSS cuida da
+                    apresentação. Separar essas funções facilita manter e reaproveitar o design.
                 </p>
 
-                <div class="grid">
+                <div class="grid two">
                     <article class="card">
-                        <h3>Formas de aplicar</h3>
+                        <h3>Uma regra CSS</h3>
 
                         <p>
-                            Inline: atributo <code>style</code>; interno:
-                            regras em <code>&lt;style&gt;</code>; externo:
-                            arquivo separado ligado com
-                            <code>&lt;link rel="stylesheet"&gt;</code>.
-                            O arquivo externo favorece organização e reutilização.
+                            O seletor escolhe elementos; dentro das chaves, cada declaração
+                            combina uma propriedade e um valor. O ponto e vírgula separa
+                            declarações. Uma regra pode ter várias declarações para configurar
+                            o mesmo grupo de elementos.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Anatomia de uma regra</h3>
+                        <h3>Onde escrever estilos?</h3>
 
                         <p>
-                            Uma regra reúne seletor e declaração:
-                            <code>.cartao { padding: 1rem; }</code>.
-                            O seletor escolhe elementos; a propriedade indica
-                            o que configurar e o valor define como.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Cascata e modelo de caixa</h3>
-
-                        <p>
-                            Cascata, herança e especificidade ajudam a
-                            determinar a regra aplicada. A caixa contém
-                            conteúdo, <code>padding</code>, borda e
-                            <code>margin</code>. Com
-                            <code>box-sizing: border-box</code>, largura
-                            e altura incluem preenchimento e borda.
+                            Para este guia, usaremos uma folha externa ligada ao HTML.
+                            Ela mantém o conteúdo separado da apresentação e pode ser
+                            compartilhada por várias páginas. O atributo <code>href</code>
+                            deve apontar para o caminho real do arquivo CSS.
                         </p>
                     </article>
                 </div>
 
-                <!-- Exemplo de código -->
+                <!-- Exemplo de conexão entre HTML e CSS -->
                 <div class="code">
-                    <div class="code-title">Regra CSS</div>
+                    <p class="code-title">index.html · ligue a folha CSS</p>
 
-                    <pre><code>.cartao {
-    color: #f1f4f8;
-    background: #11151b;
-    padding: 1.25rem;
-    border: 1px solid #242a33;
-    border-radius: 14px;
+                    <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 class="titulo"&gt;Minha página&lt;/h1&gt;
+    &lt;p&gt;Um primeiro parágrafo.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+                </div>
+
+                <div class="code">
+                    <p class="code-title">estilos.css · seletor, propriedade e valor</p>
+
+                    <pre><code>/* Selecione o título pela classe definida no HTML. */
+.titulo {
+    color: #65c1ff;
+    font-size: 2rem;
 }</code></pre>
                 </div>
+
+                <!-- Exercício prático -->
+                <aside class="practice">
+                    <h3>Pratique · sua primeira regra</h3>
+
+                    <ol>
+                        <li>Crie <code>index.html</code> e <code>estilos.css</code> na mesma pasta.</li>
+                        <li>Ligue o CSS com <code>&lt;link rel="stylesheet" href="estilos.css"&gt;</code>.</li>
+                        <li>Adicione uma classe ao título, estilize sua cor e tamanho e abra o HTML no navegador.</li>
+                        <li>Altere uma cor, salve e atualize. Se nada mudar, confira o nome e o caminho do arquivo.</li>
+                    </ol>
+                </aside>
+
+                <!-- Verificação do aprendizado -->
+                <aside class="checkpoint">
+                    <h3>Confira antes de seguir</h3>
+
+                    <ul>
+                        <li>Consigo apontar seletor, propriedade e valor numa regra?</li>
+                        <li>A folha está ligada no <code>&lt;head&gt;</code> com o caminho correto?</li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
-        <section class="dark" id="fundamentos">
+        <!-- 02 - Seletores e estados -->
+        <section class="dark" id="seletores">
             <div class="container">
                 <div class="heading">
                     <span class="num">02</span>
 
                     <div>
-                        <span class="label">SELETORES</span>
+                        <p class="label">ESCOLHER ELEMENTOS</p>
                         <h2>Seletores e estados</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    Seletores escolhem quais elementos receberão estilos.
-                    Combine-os com intenção e evite especificidade excessiva.
+                    Um seletor descreve quais elementos devem receber as declarações.
+                    Escolha seletores que expressem a intenção do estilo. Classes são úteis
+                    para reaproveitar um estilo; IDs devem identificar um elemento específico
+                    e, em CSS, tendem a tornar a prioridade mais difícil de ajustar.
                 </p>
 
                 <div class="grid two">
                     <article class="card">
-                        <h3>Seletores básicos</h3>
+                        <h3>Elemento, classe e ID</h3>
 
                         <p>
-                            Elemento: <code>p</code>; classe: <code>.card</code>;
-                            ID: <code>#principal</code>; universal:
-                            <code>*</code>; atributo:
-                            <code>input[required]</code>. Separe seletores
-                            agrupados por vírgula: <code>h1, h2, h3</code>.
+                            <code>p</code> seleciona todos os parágrafos;
+                            <code>.aviso</code> seleciona elementos com
+                            <code>class="aviso"</code>;
+                            <code>#principal</code> seleciona o elemento com
+                            <code>id="principal"</code>. Classes podem aparecer em muitos
+                            elementos. Um ID deve ser único na página.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Combinadores</h3>
+                        <h3>Relações e estados</h3>
 
                         <p>
-                            Descendente: <code>.menu a</code>; filho direto:
-                            <code>.menu &gt; a</code>; irmão adjacente:
-                            <code>h2 + p</code>; irmãos gerais:
-                            <code>h2 ~ p</code>. Eles descrevem relações
-                            na árvore HTML.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Pseudoclasses</h3>
-
-                        <p>
-                            Estados e posições:
-                            <code>:hover</code>, <code>:active</code>,
-                            <code>:focus</code>, <code>:focus-visible</code>,
-                            <code>:focus-within</code>, <code>:visited</code>,
-                            <code>:link</code>, <code>:first-child</code>,
-                            <code>:last-child</code>, <code>:nth-child()</code>,
-                            <code>:not()</code>, <code>:is()</code>,
-                            <code>:where()</code>, <code>:checked</code>,
-                            <code>:disabled</code>, <code>:enabled</code>,
-                            <code>:required</code> e <code>:root</code>.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Pseudoelementos</h3>
-
-                        <p>
-                            <code>::before</code>, <code>::after</code>,
-                            <code>::first-letter</code>,
-                            <code>::first-line</code>,
-                            <code>::placeholder</code>,
-                            <code>::selection</code> e <code>::marker</code>
-                            estilizam partes ou criam conteúdo decorativo.
-                            Pseudoclasses usam normalmente um dois-pontos;
-                            pseudoelementos, dois.
+                            <code>.menu a</code> seleciona links dentro do menu;
+                            <code>.menu &gt; a</code> seleciona apenas links filhos diretos.
+                            Pseudoclasses como <code>:hover</code> e
+                            <code>:focus-visible</code> selecionam estados de interação.
                         </p>
                     </article>
                 </div>
 
                 <!-- Exemplos de seletores -->
                 <div class="code">
-                    <div class="code-title">Exemplos</div>
+                    <p class="code-title">Exemplo comentado</p>
 
-                    <pre><code>.card:hover {
-    border-color: #55b7ff;
+                    <pre><code>/* Todos os parágrafos. */
+p {
+    line-height: 1.6;
 }
 
-input:focus-visible {
-    outline: 2px solid #55b7ff;
+/* Elementos que compartilham esta classe. */
+.botao {
+    background-color: #14324a;
 }
 
-.lista &gt; li:first-child {
-    font-weight: 700;
+/* O link quando recebe foco pelo teclado. */
+.botao:focus-visible {
+    outline: 3px solid #65c1ff;
+    outline-offset: 3px;
 }
 
-input[required] {
-    border-left: 3px solid #ff9e6d;
-}
-
-.titulo::after {
-    content: " *";
-    color: #ff9e6d;
+/* Links que estão dentro de uma navegação. */
+nav a {
+    text-decoration-thickness: 2px;
 }</code></pre>
                 </div>
+
+                <aside class="practice">
+                    <h3>Pratique · estilos de cartão</h3>
+
+                    <ol>
+                        <li>Crie três elementos com a classe <code>cartao</code> no HTML.</li>
+                        <li>Estilize todos com a classe e, depois, adicione uma classe <code>cartao-destaque</code> a apenas um.</li>
+                        <li>Use uma pseudoclasse de foco num link e navegue até ele usando Tab.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Escrever <code>cartao</code> quando queria selecionar a classe <code>.cartao</code>.</li>
+                        <li>Esquecer o ponto e vírgula entre declarações.</li>
+                        <li>Estilizar por IDs em todos os lugares, criando regras difíceis de substituir.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Consigo prever quais elementos cada seletor alcança?
+                        O foco de teclado continua visível?
+                    </p>
+                </aside>
             </div>
         </section>
 
-        <section id="exemplos">
+        <!-- 03 - Cascata, herança e especificidade -->
+        <section id="cascata">
             <div class="container">
                 <div class="heading">
                     <span class="num">03</span>
 
                     <div>
-                        <span class="label">PROPRIEDADES</span>
-                        <h2>Propriedades, unidades e funções</h2>
+                        <p class="label">ENTENDER CONFLITOS</p>
+                        <h2>Cascata, herança e especificidade</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    O CSS oferece recursos para compor interfaces flexíveis.
-                    Escolha unidades e funções conforme o contexto em vez
-                    de fixar todas as dimensões em pixels.
+                    Às vezes, duas regras tentam definir a mesma propriedade no mesmo elemento.
+                    O navegador resolve esse conflito pela cascata: considera origem, importância,
+                    especificidade e ordem das regras. Para o iniciante, prefira seletores simples
+                    e evite depender de <code>!important</code>.
                 </p>
 
-                <div class="grid">
+                <div class="grid two">
                     <article class="card">
-                        <h3>Aparência e texto</h3>
+                        <h3>Especificidade em termos simples</h3>
 
                         <p>
-                            <code>color</code>, <code>background</code>,
-                            gradientes, <code>opacity</code>,
-                            <code>font-family</code>, <code>font-size</code>,
-                            <code>font-weight</code> e <code>text-align</code>
-                            controlam cores, fundos e tipografia.
+                            Em geral, um seletor com ID tem mais especificidade que uma classe;
+                            uma classe tem mais que um seletor de elemento. Por isso,
+                            <code>#aviso</code> pode vencer <code>.aviso</code>. Se duas regras
+                            têm a mesma prioridade, a que aparece depois costuma prevalecer.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Espaço e posicionamento</h3>
+                        <h3>Herança</h3>
 
                         <p>
-                            <code>margin</code>, <code>padding</code>,
-                            <code>border</code>, <code>width</code>,
-                            <code>height</code>, <code>display</code>,
-                            <code>position</code>, <code>z-index</code>,
-                            <code>overflow</code> e <code>box-sizing</code>
-                            controlam dimensões, fluxo e camadas.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Flexbox e Grid</h3>
-
-                        <p>
-                            Flexbox organiza itens em uma dimensão, linha
-                            ou coluna. Grid organiza linhas e colunas.
-                            Ambos criam layouts adaptáveis sem depender
-                            de posicionamento absoluto para tudo.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Unidades</h3>
-
-                        <p>
-                            <code>px</code> é unidade CSS fixa;
-                            <code>%</code> depende do contexto;
-                            <code>em</code> depende do tamanho de fonte
-                            relevante; <code>rem</code> usa a fonte raiz;
-                            <code>vw</code> e <code>vh</code> são relativos
-                            à viewport.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Variáveis e funções</h3>
-
-                        <p>
-                            Defina tokens em <code>:root</code> e reutilize
-                            com <code>var()</code>. <code>calc()</code>
-                            calcula expressões; <code>min()</code>/
-                            <code>max()</code> escolhem limites;
-                            <code>clamp()</code> combina mínimo, valor
-                            preferido e máximo; <code>minmax()</code> e
-                            <code>repeat()</code> ajudam a definir grades.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Cores e gradientes</h3>
-
-                        <p>
-                            <code>rgb()</code>/<code>rgba()</code> e
-                            <code>hsl()</code>/<code>hsla()</code>
-                            representam cores. <code>linear-gradient()</code>
-                            cria transição linear e <code>radial-gradient()</code>
-                            cria transição radial.
+                            Algumas propriedades, como cor do texto e família tipográfica,
+                            normalmente passam do elemento pai aos descendentes. Outras,
+                            como margens e bordas, não são herdadas. Se um estilo não aparece
+                            onde espera, verifique a regra vencedora nas ferramentas do navegador.
                         </p>
                     </article>
                 </div>
 
-                <!-- Exemplo de variáveis e layout -->
+                <!-- Exemplo de conflito entre regras -->
                 <div class="code">
-                    <div class="code-title">Variáveis e layout fluido</div>
+                    <p class="code-title">Uma regra posterior de mesma especificidade vence</p>
 
-                    <pre><code>:root {
-    --espaco: 1rem;
-    --azul: #55b7ff;
+                    <pre><code>.aviso {
+    color: #ffb184;
 }
 
-.grade {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--espaco);
-}
-
-.titulo {
-    font-size: clamp(1.8rem, 5vw, 3.5rem);
-    color: var(--azul);
+/* Mesmo seletor: esta declaração vem depois. */
+.aviso {
+    color: #65c1ff;
 }</code></pre>
                 </div>
+
+                <aside class="practice">
+                    <h3>Pratique · investigue um conflito</h3>
+
+                    <ol>
+                        <li>Defina uma cor para todos os parágrafos e outra para uma classe aplicada a um parágrafo.</li>
+                        <li>Inspecione esse parágrafo nas ferramentas do navegador e veja quais declarações estão ativas ou riscadas.</li>
+                        <li>Troque a ordem das regras e observe o resultado. Depois experimente um seletor com ID e compare.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Adicionar <code>!important</code> sempre que algo não funciona. Isso costuma esconder o conflito e dificultar futuras alterações.</li>
+                        <li>Supor que toda propriedade é herdada do pai.</li>
+                        <li>Acumular seletores longos para vencer a cascata, quando uma classe clara resolveria melhor.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Se um estilo não aparece, consigo investigar a regra vencedora
+                        em vez de acrescentar outra regra às cegas?
+                    </p>
+                </aside>
             </div>
         </section>
 
-        <section class="dark" id="boas-praticas">
+        <!-- 04 - Modelo de caixa e unidades -->
+        <section class="dark" id="caixa">
             <div class="container">
                 <div class="heading">
                     <span class="num">04</span>
 
                     <div>
-                        <span class="label">MOVIMENTO E ADAPTAÇÃO</span>
-                        <h2>Transformações, transições e responsividade</h2>
+                        <p class="label">MEDIR E ESPAÇAR</p>
+                        <h2>Modelo de caixa e unidades</h2>
                     </div>
                 </div>
 
                 <p class="introduction">
-                    Transformações alteram visualmente posição, rotação,
-                    escala ou inclinação. Transições suavizam mudanças
-                    entre estados; animações executam sequências definidas
-                    em quadros-chave.
+                    Cada elemento é apresentado como uma caixa. Seu conteúdo pode ser cercado
+                    por preenchimento interno (<code>padding</code>), borda (<code>border</code>)
+                    e espaço externo (<code>margin</code>). Entender essas camadas ajuda a
+                    controlar tamanho e distância sem recorrer a quebras de linha artificiais.
                 </p>
 
                 <div class="grid two">
                     <article class="card">
-                        <h3>Transformações</h3>
+                        <h3>O que inclui a largura?</h3>
 
                         <p>
-                            <code>translate()</code>, <code>translateX()</code>
-                            e <code>translateY()</code> deslocam;
-                            <code>rotate()</code> gira;
-                            <code>scale()</code>, <code>scaleX()</code>
-                            e <code>scaleY()</code> redimensionam;
-                            <code>skew()</code> inclina.
-                            <code>transform-origin</code> muda a origem;
-                            <code>rotateX()</code>, <code>rotateY()</code>
-                            e <code>translateZ()</code> permitem
-                            transformações 3D.
+                            Com o padrão <code>content-box</code>, <code>width</code> define só
+                            a área de conteúdo; preenchimento e borda aumentam o tamanho total.
+                            Com <code>border-box</code>, esses itens entram na largura definida,
+                            o que torna o dimensionamento mais previsível.
                         </p>
                     </article>
 
                     <article class="card">
-                        <h3>Transições</h3>
+                        <h3>Unidades úteis</h3>
 
                         <p>
-                            <code>transition-property</code> escolhe
-                            a propriedade; <code>transition-duration</code>
-                            define duração;
-                            <code>transition-timing-function</code>
-                            define ritmo; <code>transition-delay</code>
-                            define atraso. Funções: <code>ease</code>,
-                            <code>linear</code>, <code>ease-in</code>,
-                            <code>ease-out</code>, <code>ease-in-out</code>
-                            e <code>cubic-bezier()</code>.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Animações</h3>
-
-                        <p>
-                            <code>@keyframes</code> define etapas e
-                            <code>animation</code> configura duração,
-                            repetição, direção e estado final. Use
-                            transições para mudanças de estado e animações
-                            para sequências próprias.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Responsividade</h3>
-
-                        <p>
-                            <code>@media</code> aplica regras sob condições,
-                            como largura da tela. Combine layouts fluidos
-                            com Flexbox/Grid. <code>prefers-reduced-motion</code>
-                            permite respeitar preferências de movimento
-                            reduzido.
+                            <code>px</code> é uma unidade CSS fixa; <code>%</code> depende do
+                            contexto; <code>rem</code> se relaciona ao tamanho de fonte raiz;
+                            <code>em</code> depende do contexto tipográfico. <code>vw</code>
+                            e <code>vh</code> se relacionam à janela de visualização, mas não
+                            são necessários para todo tamanho.
                         </p>
                     </article>
                 </div>
 
-                <!-- Exemplo de responsividade e acessibilidade -->
+                <!-- Exemplo do modelo de caixa -->
                 <div class="code">
-                    <div class="code-title">
-                        Exemplo responsivo e acessível
+                    <p class="code-title">Configuração inicial e cartão</p>
+
+                    <pre><code>/* Tamanhos mais previsíveis em todos os elementos. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.cartao {
+    width: min(100%, 32rem);
+    padding: 1.25rem;
+    border: 1px solid #28303a;
+    margin-block: 1rem;
+}</code></pre>
+                </div>
+
+                <aside class="practice">
+                    <h3>Pratique · ajuste um cartão</h3>
+
+                    <ol>
+                        <li>Crie uma caixa com largura, preenchimento e borda.</li>
+                        <li>Compare <code>content-box</code> e <code>border-box</code> usando as ferramentas do navegador.</li>
+                        <li>Use <code>rem</code> para texto e espaçamento. Aumente o zoom do navegador e veja se o conteúdo continua confortável.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Usar <code>margin</code> quando o espaço necessário é dentro da borda (ou vice-versa).</li>
+                        <li>Fixar largura em pixels para todo dispositivo, causando conteúdo cortado em telas estreitas.</li>
+                        <li>Usar <code>100vw</code> sem necessidade; pode incluir a largura da barra de rolagem e causar rolagem horizontal.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        Consigo desenhar as camadas da caixa?
+                        Sei por que um elemento ficou maior que a largura declarada?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 05 - Flexbox e Grid -->
+        <section id="layout">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">05</span>
+
+                    <div>
+                        <p class="label">ARRANJAR ELEMENTOS</p>
+                        <h2>Flexbox e Grid</h2>
                     </div>
+                </div>
 
-                    <pre><code>.botao {
-    transition: transform .2s ease;
+                <p class="introduction">
+                    Layouts modernos organizam itens sem precisar posicionar cada elemento
+                    manualmente. Flexbox funciona bem para alinhar itens numa dimensão principal;
+                    Grid organiza linhas e colunas. Ambos podem se adaptar ao espaço disponível.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Flexbox para uma direção</h3>
+
+                        <p>
+                            Defina <code>display: flex</code> no contêiner. <code>gap</code>
+                            cria espaço entre itens; <code>justify-content</code> distribui
+                            pelo eixo principal; <code>align-items</code> alinha pelo eixo
+                            transversal. A direção pode ser linha ou coluna.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Grid para linhas e colunas</h3>
+
+                        <p>
+                            Defina <code>display: grid</code> no contêiner.
+                            <code>grid-template-columns</code> define colunas e <code>gap</code>
+                            o espaço entre células. Combinações como
+                            <code>repeat(auto-fit, minmax(...))</code> permitem ajustar
+                            quantas colunas cabem.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplos de Flexbox e Grid -->
+                <div class="code">
+                    <p class="code-title">Exemplos comentados</p>
+
+                    <pre><code>/* Alinha itens em uma linha e deixa espaço entre eles. */
+.barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-.botao:hover {
-    transform: translateY(-2px);
+/* Cartões criam colunas conforme o espaço disponível. */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1rem;
+}</code></pre>
+                </div>
+
+                <aside class="practice">
+                    <h3>Pratique · galeria de cartões</h3>
+
+                    <ol>
+                        <li>Monte três cartões em HTML, cada um com título e descrição.</li>
+                        <li>Organize-os em Grid com colunas flexíveis e um <code>gap</code>.</li>
+                        <li>Use Flexbox para alinhar uma barra com nome do site e links de navegação.</li>
+                        <li>Redimensione a janela e observe como o layout responde.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Usar <code>position: absolute</code> para montar todo o layout. Ele remove elementos do fluxo normal e exige coordenadas explícitas.</li>
+                        <li>Esquecer de aplicar <code>display: flex</code> ou <code>display: grid</code> ao contêiner.</li>
+                        <li>Definir colunas rígidas que não cabem no espaço estreito.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        O problema é alinhar itens numa direção ou estruturar linhas
+                        e colunas? Escolhi Flexbox ou Grid de acordo?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 06 - Tipografia, cores e variáveis -->
+        <section class="dark" id="visual">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">06</span>
+
+                    <div>
+                        <p class="label">CRIAR UMA LINGUAGEM VISUAL</p>
+                        <h2>Tipografia, cores e variáveis</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Regras visuais consistentes ajudam as pessoas a perceber hierarquia
+                    e a ler o conteúdo. Escolha fontes legíveis, contraste suficiente
+                    e espaçamentos coerentes. Variáveis CSS permitem reutilizar valores
+                    e mudar uma paleta sem editar cada regra individualmente.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Texto legível</h3>
+
+                        <p>
+                            <code>font-family</code> escolhe a família;
+                            <code>font-size</code> define o tamanho;
+                            <code>line-height</code> controla a altura da linha;
+                            <code>font-weight</code> define o peso. Priorize leitura
+                            confortável em diferentes tamanhos de tela.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Variáveis e escala flexível</h3>
+
+                        <p>
+                            Uma propriedade personalizada começa com <code>--</code>
+                            e pode ser usada com <code>var()</code>.
+                            <code>clamp(mínimo, preferido, máximo)</code> permite que
+                            um valor aumente com limites, por exemplo para um título fluido.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de variáveis CSS -->
+                <div class="code">
+                    <p class="code-title">Exemplo comentado</p>
+
+                    <pre><code>:root {
+    --cor-texto: #f1f4f8;
+    --cor-destaque: #65c1ff;
+    --espaco: 1rem;
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+body {
+    color: var(--cor-texto);
+    font-family: system-ui, sans-serif;
+    line-height: 1.65;
 }
 
-@media (max-width: 600px) {
+h1 {
+    color: var(--cor-destaque);
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-block-end: var(--espaco);
+}</code></pre>
+                </div>
+
+                <aside class="practice">
+                    <h3>Pratique · crie seus tokens</h3>
+
+                    <ol>
+                        <li>Defina variáveis para cor do texto, cor de destaque e espaço comum em <code>:root</code>.</li>
+                        <li>Use-as em títulos e cartões.</li>
+                        <li>Mude uma variável e observe quantas partes do visual são atualizadas.</li>
+                    </ol>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        O texto tem contraste e espaçamento confortáveis?
+                        Valores repetidos estão representados por variáveis úteis?
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 07 - Responsividade e movimento -->
+        <section id="responsivo">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">07</span>
+
+                    <div>
+                        <p class="label">ADAPTAR A DIFERENTES TELAS</p>
+                        <h2>Responsividade e movimento</h2>
+                    </div>
+                </div>
+
+                <p class="introduction">
+                    Uma interface responsiva funciona em diferentes larguras, níveis de zoom
+                    e modos de entrada. Prefira começar com conteúdo fluido e ajustar o layout
+                    quando ele deixar de caber. Media queries permitem aplicar regras
+                    condicionais; respeite também a preferência do sistema por movimento reduzido.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Media queries</h3>
+
+                        <p>
+                            <code>@media</code> agrupa regras que valem sob uma condição.
+                            Uma condição de largura pode mudar colunas para uma única coluna
+                            quando o espaço diminui. Escolha o ponto de mudança observando
+                            o conteúdo, não um modelo específico de aparelho.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Interações e animações</h3>
+
+                        <p>
+                            <code>transition</code> suaviza mudança de estado;
+                            <code>@keyframes</code> define etapas de uma animação.
+                            Use movimento com moderação e forneça uma alternativa
+                            quando a pessoa prefere movimento reduzido.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Exemplo de responsividade -->
+                <div class="code">
+                    <p class="code-title">Exemplo comentado</p>
+
+                    <pre><code>.grade {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* Em telas mais estreitas, uma coluna evita cartões apertados. */
+@media (max-width: 40rem) {
     .grade {
         grid-template-columns: 1fr;
     }
 }
 
+/* Remova transições quando a pessoa pede menos movimento. */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
 }</code></pre>
                 </div>
 
-                <div class="note">
-                    <strong>Importante:</strong>
-                    <code>::before</code> e <code>::after</code>
-                    precisam de <code>content</code>. Use-os para decoração,
-                    não para informação essencial nem para substituir
-                    elementos semânticos.
-                </div>
+                <aside class="practice">
+                    <h3>Pratique · teste tamanhos</h3>
+
+                    <ol>
+                        <li>Construa uma grade de cartões e abra a página em uma janela larga e outra estreita.</li>
+                        <li>Observe quando os cartões ficam apertados e escolha um ponto de quebra adequado ao conteúdo.</li>
+                        <li>Teste zoom do navegador e navegação por teclado. Mantenha o foco visível e evite exigir hover.</li>
+                    </ol>
+                </aside>
+
+                <aside class="mistakes">
+                    <h3>Erros comuns</h3>
+
+                    <ul>
+                        <li>Escrever um valor CSS inválido ou esquecer a unidade, por exemplo <code>width: 30;</code>.</li>
+                        <li>Esconder conteúdo em telas pequenas para fazê-lo caber, sem alternativa.</li>
+                        <li>Usar animação contínua ou intensa sem considerar movimento reduzido.</li>
+                    </ul>
+                </aside>
+
+                <aside class="checkpoint">
+                    <h3>Revisão rápida</h3>
+
+                    <p>
+                        A página continua utilizável em tela estreita e com zoom?
+                        O movimento pode ser reduzido? Controles continuam acessíveis por teclado?
+                    </p>
+                </aside>
             </div>
         </section>
 
-        <section id="resumo">
+        <!-- 08 - Projeto final -->
+        <section class="dark" id="projeto">
             <div class="container">
-                <div class="summary">
+                <div class="heading">
+                    <span class="num">08</span>
+
                     <div>
-                        <span class="label">SÍNTESE FINAL</span>
-
-                        <h2>O que levar deste guia</h2>
-
-                        <p>
-                            CSS controla a apresentação. Dominar seletores,
-                            modelo de caixa, Flexbox/Grid, variáveis e
-                            media queries ajuda a construir interfaces
-                            consistentes, responsivas, acessíveis e fáceis
-                            de manter.
-                        </p>
-                    </div>
-
-                    <div class="summary-list">
-
-                        <div>
-                            <strong>Entenda o propósito</strong>
-                            <small>
-                                Saiba qual problema a tecnologia resolve.
-                            </small>
-                        </div>
-
-                        <div>
-                            <strong>Pratique em etapas</strong>
-                            <small>
-                                Teste exemplos e observe o resultado.
-                            </small>
-                        </div>
-
-                        <div>
-                            <strong>Priorize clareza</strong>
-                            <small>
-                                Código legível é mais fácil de manter.
-                            </small>
-                        </div>
+                        <p class="label">JUNTAR AS PEÇAS</p>
+                        <h2>Projeto final: página de cartões</h2>
                     </div>
                 </div>
+
+                <p class="introduction">
+                    Crie uma página com cabeçalho, introdução e uma grade de cartões sobre
+                    um tema que você goste. Use HTML para a estrutura e CSS para apresentação;
+                    teste em tamanhos diferentes antes de considerar o trabalho pronto.
+                </p>
+
+                <div class="grid two">
+                    <article class="card">
+                        <h3>Requisitos</h3>
+
+                        <ul>
+                            <li>Uma folha CSS externa ligada corretamente.</li>
+                            <li>Classes reutilizáveis e seletores simples.</li>
+                            <li>Variáveis para cores e espaçamentos.</li>
+                            <li>Grid ou Flexbox usado conforme a necessidade do layout.</li>
+                            <li>Uma media query que preserve a leitura em tela estreita.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Checklist de revisão</h3>
+
+                        <ul>
+                            <li>O texto continua legível e com contraste?</li>
+                            <li>Existe rolagem horizontal acidental?</li>
+                            <li>O foco de teclado está visível?</li>
+                            <li>Os estilos permanecem fáceis de encontrar e mudar?</li>
+                            <li>O layout funciona com conteúdo maior que o exemplo?</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Resumo final -->
+                <aside class="checkpoint final-check">
+                    <h3>O que você aprendeu</h3>
+
+                    <p>
+                        Você praticou regras, seletores, cascata, modelo de caixa, unidades,
+                        layouts, variáveis e media queries. CSS é iterativo: ajuste uma regra
+                        de cada vez e use as ferramentas do navegador para entender o resultado.
+                    </p>
+                </aside>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container foot">
             <span>GUIA DE CSS</span>
 
-            <p>
-                Material educativo para estudo de Desenvolvimento Web
-            </p>
+            <p>Material educativo para estudar Desenvolvimento Web.</p>
+
+            <a href="#conteudo">Voltar ao início ↑</a>
         </div>
     </footer>
 </body>
