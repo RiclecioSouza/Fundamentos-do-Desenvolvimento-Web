@@ -9,6 +9,9 @@
     >
     <title>HTML do zero | Guia Front-end</title>
     <link rel="stylesheet" href="estilo/guia.css">
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css"
+    >
 </head>
 
 <body>
@@ -905,6 +908,42 @@
                 </aside>
             </div>
         </section>
+
+        <!--Seção 7: Laboratório de exercícios-->
+        <section id="laboratorio">
+            <div class="container">
+                <div class="heading">
+                    <span class="num">07</span>
+
+                    <div>
+                        <p class="label">TESTAR O APRENDIZADO</p>
+                        <h2>Laboratório de exercícios</h2>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="form-laboratorio" action="">
+                        <fieldset>
+                            <legend>Laboratório de HTML</legend>
+                            <p>Teste seus conhecimentos em HTML e acompanhe seu desempenho.</p>
+
+                            <!-- As perguntas serão inseridas aqui via JS -->
+                            <div id="perguntas-container"></div>
+
+                            <button type="submit" class="btn-verificar">Verificar respostas</button>
+                        </fieldset>
+                    </form>
+
+                    <!-- Área de resultado -->
+                    <div id="resultado" class="resultado" hidden>
+                        <h3>Resultado</h3>
+                        <p id="pontuacao"></p>
+                        <div id="feedback-detalhado"></div>
+                        <button type="button" id="btn-refazer">Refazer exercício</button>
+                    </div>
+                </div>    
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -915,8 +954,10 @@
                 Material educativo para estudar Desenvolvimento Web.
             </p>
 
-            <a href="#conteudo">Voltar ao início ↑</a>
+            <a href="#conteudo"><i class="bi bi-arrow-up"></i></a>
         </div>
     </footer>
+
+    <script src="script/quiz-HTML.js"></script>
 </body>
 </html>
