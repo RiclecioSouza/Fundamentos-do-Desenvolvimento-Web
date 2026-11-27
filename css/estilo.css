@@ -34,6 +34,10 @@ html {
     scroll-behavior: smooth;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 body {
     background: var(--bg);
     color: var(--text);
@@ -61,6 +65,88 @@ h3 {
 .container {
     width: min(var(--max-width), calc(100% - 48px));
     margin: 0 auto;
+}
+
+/* ====== PRELOADER ====== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #080a0e;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.preloader-logo {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border: 1px solid #ffffff26;
+    border-radius: 16px;
+    background: #ffffff0a;
+}
+
+.preloader-logo span {
+    font-size: 25px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.preloader-content h2 {
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.preloader-content h2 span {
+    color: #8b8bff;
+}
+
+.preloader-spinner {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 18px;
+    border: 3px solid #ffffff1f;
+    border-top-color: #8b8bff;
+    border-radius: 50%;
+    animation: carregar 0.8s linear infinite;
+}
+
+.preloader-content p {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #92929f;
+}
+
+/* ANIMAÇÃO */
+@keyframes carregar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* ====== HERO ====== */

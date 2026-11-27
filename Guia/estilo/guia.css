@@ -33,6 +33,10 @@ html {
     scroll-padding-top: 1rem;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 body {
     margin: 0;
     background: var(--bg);
